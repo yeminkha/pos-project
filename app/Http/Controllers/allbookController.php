@@ -92,13 +92,17 @@ class allbookController extends Controller
                 $productCounts = Product::select('category_name', DB::raw('COUNT(*) as product_count'))
                     ->groupBy('category_name')
                     ->get();
-                $data = [
-                    'title' => $title,
-                    'list' => $list,
-                    'mainList' => $mainList,
-                    'productCounts' => $productCounts
-                ];
-                return view('user/dropList', $data);
+                if (isEmpty($mainList)) {
+                    return back();
+                } else {
+                    $data = [
+                        'title' => $title,
+                        'list' => $list,
+                        'mainList' => $mainList,
+                        'productCounts' => $productCounts
+                    ];
+                    return view('user/dropList', $data);
+                }
                 break;
             case 'arthur':
                 $title = 'စာရေးဆရာအမည်ဖြင့် စာအုပ်စုစည်းမှု';
@@ -115,14 +119,19 @@ class allbookController extends Controller
                     ->groupBy('arthur')
                     ->get();
                 $arthurs = arthur::select('name')->distinct()->pluck('name')->toArray();
-                $data = [
-                    'title' => $title,
-                    'list' => $list,
-                    'mainList' => $mainList,
-                    'productCounts' => $productCounts,
-                    'arthurs' => $arthurs
-                ];
-                return view('user/arthurDrop', $data);
+                if (isEmpty($mainList)) {
+                    return back();
+                } else {
+                    $data = [
+                        'title' => $title,
+                        'list' => $list,
+                        'mainList' => $mainList,
+                        'productCounts' => $productCounts,
+                        'arthurs' => $arthurs
+                    ];
+                    return view('user/arthurDrop', $data);
+                }
+
                 break;
 
             default:
