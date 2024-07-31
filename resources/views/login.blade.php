@@ -21,12 +21,19 @@
                 <div class="cardBody">
                     <form action="{{ route('login') }}" method="POST">
                         @csrf
-                        <input type="email" placeholder="email" name="email" />
-                        @error('email')
+                        {{-- <input type="phone" placeholder="phone" name="phone" />
+                        @error('phone')
                             <small style="color: red;font-size:10px;">{{ $message }}</small>
+                        @enderror --}}
+                        <input  type="text"  name="login" value="{{ old('login') }}" required autocomplete="login" autofocus placeholder="phone or email">
+
+                        @error('login')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                         @enderror
 
-                        <input type="text" placeholder="Password" name='password' />
+                        <input type="password" placeholder="Password" name='password' />
                         @error('password')
                             <small style="color: red;font-size:10px;">{{ $message }}</small>
                         @enderror

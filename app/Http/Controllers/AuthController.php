@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\arthur;
-use App\Models\category;
-use App\Models\mainCategory;
 use App\Models\User;
 use App\Models\order;
+use App\Models\arthur;
 use App\Models\product;
+use App\Models\category;
+use App\Models\mainCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -76,7 +77,7 @@ class AuthController extends Controller
         $mainCategory = mainCategory::get();
         $mainCategoryList = $mainCategory;
         $categoryList = category::get();
-        $arthurList = product::select('arthur')->groupBy('arthur')->orderBy('arthur','desc');
+        $arthurList = product::select('arthur')->groupBy('arthur')->orderBy('arthur', 'desc');
         $editorChoiceProducts = product::where('editor_choice', 'True')->orderBy('created_at', 'desc')->get();
 
 
