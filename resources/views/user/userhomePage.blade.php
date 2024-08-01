@@ -2,7 +2,9 @@
 @section('content')
     <section class="home">
         <div class="imgContainer">
+            @if (count($mostSoldProducts) > 0)
             <img src="https://www.pannsattlann.com/wp-content/uploads/2023/05/Bestseller-Header-May-4.png" alt="" />
+            @endif
         </div>
         @if (count($mostSoldProducts))
             <div class="bookContainerOuter">
