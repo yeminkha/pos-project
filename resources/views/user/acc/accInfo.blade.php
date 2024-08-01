@@ -18,11 +18,11 @@
 
                                                 @if (Auth::user()->image == null)
                                                     <img id="imagePreview"
-                                                        src="{{ asset('storage/user_profile/userpf.png') }}"
+                                                        src="{{ asset('storage/profile_images/default_pf.png') }}"
                                                         style="max-width: 100%; max-height: 100%; display: block;">
                                                 @else
                                                     <img id="imagePreview"
-                                                        src="{{ asset('storage/user_profile/' . Auth::user()->image) }}"
+                                                        src="{{ asset('storage/profile_images/' . Auth::user()->image) }}"
                                                         style="max-width: 100%; max-height: 100%; display: block;">
                                                 @endif
                                             </div>
