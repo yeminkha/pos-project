@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -31,27 +32,35 @@ class AccController extends Controller
             'email' => $request->email ?? null,
             'phone' => $request->phone ?? null,
             'address' => $request->address ?? null,
-            'gender' => $request->gender ,
+            'gender' => $request->gender,
         ];
+
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $oldImage = User::where('id', Auth::user()->id)->value('image');
 
             // Check if the old image exists before attempting to delete it
-            if ($oldImage && Storage::exists('public/user_profile/' . $oldImage)) {
+            if ($oldImage && Storage::exists('public/profile_images/' . $oldImage)) {
                 // Delete old image
-                Storage::delete('public/user_profile/' . $oldImage);
+                Storage::delete('public/profile_images/' . $oldImage);
             }
 
             // Get new image name with a random number appended
             $newImage = $this->generateRandomImageName($image);
 
-            // Save new image to storage
-            $image->storeAs('public/user_profile', $newImage);
+            try {
+                // Save new image to storage
+                $path = $image->storeAs('public/profile_images', $newImage);
+                Log::info('Image stored at: ' . $path);
 
-            $data['image'] = $newImage;
+                $data['image'] = $newImage;
+            } catch (\Exception $e) {
+                Log::error('Failed to store image: ' . $e->getMessage());
+            }
         }
+
+
 
         User::where('id', Auth::user()->id)->update($data);
 

@@ -7,7 +7,7 @@
             </div>
             <div class="card" id='book_mark_card'>
                 <div class="card-left">
-                    <img src="{{asset('storage/service/BookmarkBookcover-Icon.gif')}}"
+                    <img src="{{asset('storage/default_images/services/BookmarkBookcover-Icon.gif')}}"
                         alt="" />
                 </div>
                 <div class="card-right">
@@ -22,7 +22,7 @@
             </div>
             <div class="card" id='tracking'>
                 <div class="card-left">
-                    <img src="{{asset('storage/service/Tracking-Icon.gif')}}"
+                    <img src="{{asset('storage/default_images/services/Tracking-Icon.gif')}}"
                         alt="" />
                 </div>
                 <div class="card-right">
@@ -37,7 +37,7 @@
             </div>
             <div class="card" id='local_deli'>
                 <div class="card-left">
-                    <img src="{{asset('storage/service/local-delivey.gif')}}"
+                    <img src="{{asset('storage/default_images/services/local-delivey.gif')}}"
                         alt="" />
                 </div>
                 <div class="card-right">
@@ -53,7 +53,7 @@
             </div>
             <div class="card" id='inter_deli'>
                 <div class="card-left">
-                    <img src="{{asset('storage/service/international-delivery-icon.gif')}}"
+                    <img src="{{asset('storage/default_images/services/international-delivery-icon.gif')}}"
                         alt="" />
                 </div>
                 <div class="card-right">
@@ -73,7 +73,7 @@
             </div>
             <div class="card" id='deli_charges'>
                 <div class="card-left">
-                    <img src="{{asset('storage/service/Delivery-charges-Icon.gif')}}"
+                    <img src="{{asset('storage/default_images/services/Delivery-charges-Icon.gif')}}"
                         alt="" />
                 </div>
                 <div class="card-right">
@@ -90,7 +90,7 @@
             </div>
             <div class="card" id='payment'>
                 <div class="card-left">
-                    <img src="{{asset('storage/service/Payment-Icon.gif')}}"
+                    <img src="{{asset('storage/default_images/services/Payment-Icon.gif')}}"
                         alt="" />
                 </div>
                 <div class="card-right">
@@ -108,7 +108,7 @@
             </div>
             <div class="card" id='deli_time'>
                 <div class="card-left">
-                    <img src="{{asset('storage/service/Delivery-Time-Icon.gif')}}"
+                    <img src="{{asset('storage/default_images/services/Delivery-Time-Icon.gif')}}"
                         alt="" />
                 </div>
                 <div class="card-right">
@@ -125,7 +125,7 @@
             </div>
             <div class="card">
                 <div class="card-left">
-                    <img src="{{asset('storage/service/Discount-Icon.gif')}}"
+                    <img src="{{asset('storage/default_images/services/Discount-Icon.gif')}}"
                         alt="" />
                 </div>
                 <div class="card-right">
@@ -142,7 +142,7 @@
             </div>
             <div class="card" id='responsibility'>
                 <div class="card-left">
-                    <img src="{{asset('storage/service/Trust-Icon.gif')}}"
+                    <img src="{{asset('storage/default_images/services/Trust-Icon.gif')}}"
                         alt="" />
                 </div>
                 <div class="card-right">
@@ -164,7 +164,7 @@
             </div>
             <div class="card" id='copyright'>
                 <div class="card-left">
-                    <img src="{{asset('storage/service/Copy-Right-Icon.gif')}}"
+                    <img src="{{asset('storage/default_images/services/Copy-Right-Icon.gif')}}"
                         alt="" />
                 </div>
                 <div class="card-right">

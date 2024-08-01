@@ -110,8 +110,8 @@ Route::get('/user/role', [UserListController::class, 'userRole']);
 Route::get('/user/detail/{id}', [UserListController::class, 'userDetail'])->name('userDetail');
 
 //acc
-Route::get('admin/acc/edit', [AccController::class, 'accEdit'])->name('accEdit');
-Route::post('admin/acc/update', [AccController::class, 'accUpdate'])->name('accUpdate');
+Route::get('/acc/edit', [AccController::class, 'accEdit'])->name('accEdit');
+Route::post('/acc/update', [AccController::class, 'accUpdate'])->name('accUpdate');
 
 //password
 Route::get('admin/pass/edit', [AccController::class, 'passEdit'])->name('passEdit');
