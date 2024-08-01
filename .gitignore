@@ -2,8 +2,11 @@
 /node_modules
 /public/build
 /public/hot
+# Ignore everything in the public/storage directory
 /public/storage/*
-!/public/storage/default_images
+
+# Except these specific directories and files
+!/public/storage/profile_images
 
 /storage/*.key
 /vendor
