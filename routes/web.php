@@ -39,8 +39,9 @@ Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard'
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
 
+    //user
     Route::middleware([UserAuthMiddleware::class])->group(function () {
-        //user
+
         // Route::get('/bookPage/{id}',[ProductController::class,'bookPage'])->name('bookPage');
         Route::get('/bookPage/{id}', [ProductController::class, 'bookPage'])->name('bookPage');
 
