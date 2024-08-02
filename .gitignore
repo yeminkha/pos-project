@@ -4,10 +4,10 @@
 /public/hot
 
 # Except these specific directories and files
-!/public/storage/profile_images
+/public/profile_images
 
-# Ignore everything in the public/storage directory
-/public/storage/*
+# # Ignore everything in the public/storage directory
+# /public/storage/*
 
 
 
