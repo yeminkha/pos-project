@@ -2,8 +2,6 @@
 /node_modules
 /public/build
 /public/hot
-
-# Ignore everything in the public/storage directory
 /public/storage
 /storage/*.key
 /vendor
