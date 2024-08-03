@@ -37,7 +37,7 @@ Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard'
 
 
 
-Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
+// Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
 
     //user
     Route::middleware([UserAuthMiddleware::class])->group(function () {
@@ -121,4 +121,4 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     //password
     Route::get('admin/pass/edit', [AccController::class, 'passEdit'])->name('passEdit');
     Route::post('admin/pass/update', [AccController::class, 'passUpdate'])->name('passUpdate');
-});
+// });

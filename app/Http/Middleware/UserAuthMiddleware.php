@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
+use function PHPUnit\Framework\isTrue;
+
 class UserAuthMiddleware
 {
     /**
@@ -16,9 +18,15 @@ class UserAuthMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->role != 'user'){
-            abort(404);
+        if (Auth::check()){
+            if ( Auth::user()->role != 'user') {
+                abort(404);
+            }
+        }else{
+            return $next($request);
         }
+
         return $next($request);
+
     }
 }
