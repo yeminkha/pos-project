@@ -39,6 +39,8 @@
                     }
                 }
             @endphp
+            <i class="fa-solid fa-bars menu"></i>
+
             <form action="{{ route('book') }}" method="POST">
                 @csrf
                 <input type="text" name="name" id="search" placeholder="စာအုပ်ရှာရန်..." />

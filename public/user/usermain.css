@@ -61,19 +61,34 @@ header {
     position: relative;
 }
 .logo img {
-    width: 800px;
+    width: 50%;
 }
 .inputGp {
-    padding: 20px 0;
     background-color: var(--theme-color);
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    width: 100%;
 }
 .noti {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    width: 120px;
+    height: 50px;
+}
+
+.menu {
+    display: none;
+    background-color: white;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
 }
 .noti a .number {
     height: 20px;
@@ -90,18 +105,18 @@ header {
     right: 0px;
 }
 .noti a {
-    font-size: 50px;
+    font-size: 40px;
     color: var(--main-color);
     position: relative;
 }
 .chart {
-    font-size: 13px;
+    font-size: 80%;
 }
 .inputGp form {
-    padding: 5px;
-    height: 50px;
+    padding: 3px 0px;
+    height: 40px;
     background-color: var(--main-color);
-    width: 600px;
+    width: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,14 +125,16 @@ header {
     outline: none;
     border: none;
     height: 30px;
-    width: 89%;
+    width: 90%;
+    padding: 0px 10px;
 }
 .inputGp form button {
     background-color: var(--theme-color);
     border: none;
     padding: 7px 5px 3px 5px;
     font-size: 25px;
-    width: 10%;
+    width: 15%;
+    cursor: pointer;
 }
 
 nav {
@@ -140,7 +157,6 @@ nav {
     cursor: pointer;
     background-color: var(--theme-color);
 }
-
 .dropdown {
     position: relative;
     display: inline-block;
@@ -302,18 +318,27 @@ nav {
 footer {
     position: static;
     width: 100%;
-    padding: 50px;
     background-color: var(--theme-color);
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
 }
 footer li {
     list-style: none;
 }
+footer ul {
+    width: 80%;
+    margin: auto;
+}
+
 .pageLinks,
 .service,
 .address {
-    width: 400px;
+    width: 200px;
+    margin: 5px 0;
+}
+.address {
+    width: 300px;
 }
 
 /* login css */
@@ -2008,4 +2033,55 @@ footer li {
 }
 .home .category .btn {
     margin: 20px auto 40px;
+}
+
+@media (max-width: 930px) {
+    nav {
+        display: none;
+    }
+    .inputGp {
+        justify-content: space-between;
+    }
+    .menu {
+        display: block;
+    }
+    .inputGp form {
+        width: 40%;
+    }
+    .inputGp form button {
+        width: 15%;
+    }
+}
+
+@media (max-width: 700px) {
+    .logo img {
+        width: 80%;
+    }
+    .inputGp form {
+        width: 50%;
+    }
+    .inputGp form button {
+        width: 15%;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .logo img {
+        width: 90%;
+    }
+    .inputGp form {
+        width: 70%;
+    }
+}
+@media (max-width: 480px) {
+    .logo img {
+        width: 100%;
+    }
+    .inputGp form {
+        width: 50%;
+    }
+    .inputGp {
+        padding: 0px;
+    }
 }
