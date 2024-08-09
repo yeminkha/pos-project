@@ -81,6 +81,7 @@ header {
 
 .menu {
     display: none;
+    visibility: hidden;
     background-color: white;
     border-radius: 8px;
     padding: 5px;
@@ -89,6 +90,22 @@ header {
     cursor: pointer;
     width: 40px;
     height: 40px;
+}
+.menuSlider{
+    position: absolute;
+    top: 130px;
+    left:  0;
+    width: 0;
+    min-height: 100vh;
+    z-index: 999;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    background-color: var(--theme-color);
+    transition: all 0.5s ease-in-out;
+}
+.menuSliderActive{
+    width: 300px;
 }
 .noti a .number {
     height: 20px;
@@ -156,6 +173,7 @@ nav {
     border: none;
     cursor: pointer;
     background-color: var(--theme-color);
+    display: block;
 }
 .dropdown {
     position: relative;
@@ -1511,7 +1529,7 @@ footer ul {
     bottom: 10px;
     right: 40px;
     background-color: var(--main-color);
-    z-index: 9999;
+    z-index: 99;
     transition: all 0.5s ease-in-out;
 }
 
@@ -2044,6 +2062,7 @@ footer ul {
     }
     .menu {
         display: block;
+        visibility: visible;
     }
     .inputGp form {
         width: 40%;

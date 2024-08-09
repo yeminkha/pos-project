@@ -172,6 +172,18 @@
             </nav>
         </div>
     </header>
+    <div class="menuSlider">
+        <a class="dropbtn" href="{{ route('homePage') }}">Pan Home</a>
+        <button class="dropbtn">စာအုပ်များအားလုံး</button>
+        <a class="dropbtn" href="{{ route('dropSearchList', ['key' => 'cati']) }}">စာအုပ်အမျိုးအစား</a>
+        <a href="{{ route('dropSearchList', ['key' => 'arthur']) }}" class="dropbtn">စာရေးဆရာများ</a>
+        <a href='{{ route('readingGuide') }}' class="dropbtn">စာအုပ်ဖတ်ညွှန်းများ</a>
+        <a href="{{ route('servicePage') }}" class="dropbtn">ဝန်ဆောင်မှုများ</a>
+
+        <button class="dropbtn">WISHLIST</button>
+        <button class="dropbtn">My Account</button>
+
+    </div>
     <div class="busket">
         <i class="fa-solid fa-basket-shopping"></i>
         <div class="number">

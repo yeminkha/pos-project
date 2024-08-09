@@ -12,7 +12,9 @@ $(document).ready(function () {
     $(".aboutLogin").hover(function () {
         $(".explainLogin").toggleClass("visible");
     });
-
+    $(".menu").click(function () {
+        $(".menuSlider").toggleClass("menuSliderActive");
+      });
     $(".downdownbtn").click(function () {
       let container = $(this).closest(".dropdownContainer");
       let contentBox = container.find(".dorpdownContentBox");
