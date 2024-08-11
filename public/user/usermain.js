@@ -1,4 +1,9 @@
 $(document).ready(function () {
+    $(".side").click(function () {
+        $(this).toggleClass("down");
+        $(this).closest(".dropdown").find('.dropdown-content').toggleClass("menuactive");
+    });
+
     $(".aboutRegister").hover(function () {
       $(".explainRegister").toggleClass("visible");
     });

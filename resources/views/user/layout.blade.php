@@ -174,14 +174,82 @@
     </header>
     <div class="menuSlider">
         <a class="dropbtn" href="{{ route('homePage') }}">Pan Home</a>
-        <button class="dropbtn">စာအုပ်များအားလုံး</button>
+        <div class="dropdown">
+            <button class="dropbtn">စာအုပ်များအားလုံး</button>
+            <div class="dropdown-content">
+                <a href="{{ route('newBooks') }}">အသစ်ထွက်စာအုပ်များ</a>
+                <a href="{{ route('mostSell') }}">အရောင်းရဆုံးစာအုပ်များ</a>
+                <a href="{{ route('editorFav') }}">အယ်ဒီတာအဖွဲ့စိတ်ကြိုက်စာအုပ်များ</a>
+                <a href="{{ route('suya') }}">စာပေဆုရစာအုပ်များ</a>
+                <a href="{{ route('classic') }}">မြန်မာစာပေ ဂန္ထဝင်စာအုပ်များ</a>
+            </div>
+            <i class="fa-solid fa-chevron-down side"></i>
+        </div>
+        <div class="dropdown">
+            <a class="dropbtn" href="{{ route('dropSearchList', ['key' => 'cati']) }}">စာအုပ်အမျိုးအစား</a>
+            <div class="dropdown-content">
+                @if (!empty($mainCategoryList))
+                    @foreach ($mainCategoryList as $m)
+                        <a href="{{ route('bookSearchMain', $m->id) }}"
+                            class="mainCategory">{{ $m->name }}</a>
+                        @if (!empty($categoryList))
+                            @foreach ($categoryList as $c)
+                                @if ($c->main_category_id == $m->id)
+                                    <a href="{{ route('bookSearch', $c->id) }}"
+                                        style="margin-left: 10px;">{{ $c->name }}</a>
+                                @endif
+                            @endforeach
+                        @endif
+                    @endforeach
+                @endif
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="{{ route('dropSearchList', ['key' => 'arthur']) }}" class="dropbtn">စာရေးဆရာများ</a>
+            <div class="dropdown-content">
+                @if (!empty($arthurList))
+                    @foreach ($arthurList as $item)
+                        <a href="{{ route('arthurSearch', $item->arthur) }}">{{ $item->arthur }}</a>
+                    @endforeach
+                @endif
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href='{{ route('readingGuide') }}' class="dropbtn">စာအုပ်ဖတ်ညွှန်းများ</a>
+            <div class="dropdown-content">
+                <ul>
+                    @foreach ($readingGuideList as $item)
+                        <li><a
+                                href="{{ route('readingGuideSearch', $item->reading_guide) }}">{{ $item->reading_guide }}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="{{ route('servicePage') }}" class="dropbtn">ဝန်ဆောင်မှုများ</a>
+            <div class="dropdown-content">
+                <a href="{{ url('/servicePage#book_mark_card') }}">စာအုပ်ဖုံး စာမှတ်ကဒ်လက်ဆောင်</a>
+                <a href="{{ url('/servicePage#tracking') }}">ပို့ဆောင်မှုခြေရာခံစနစ်</a>
+                <a href="{{ url('/servicePage#local_deli') }}">ပြည်တွင်းပို့ဆောင်မှုစနစ်</a>
+                <a href="{{ url('/servicePage#inter_deli') }}">နိုင်ငံတကာပို့ဆောင်မှုစနစ်</a>
+                <a href="{{ url('/servicePage#deli_charges') }}">ပို့ခနှုန်းထားနှင့် ငွေပေးချေမှုစနစ်</a>
+                <a href="{{ url('/servicePage#deli_time') }}">ပို့ဆောင်မှုကြာမြင့်ချိန်</a>
+                <a href="{{ url('/servicePage#responsibility') }}">တာဝန်ယူမှုများ</a>
+                <a href="{{ url('/servicePage#copyright') }}">မှုပိုင်ခွင့်ကာကွယ်ပေးမှု</a>
+            </div>
+            <i class="fa-solid fa-chevron-down side"></i>
+
+        </div>
+        {{-- <button class="dropbtn">စာအုပ်များအားလုံး</button>
         <a class="dropbtn" href="{{ route('dropSearchList', ['key' => 'cati']) }}">စာအုပ်အမျိုးအစား</a>
         <a href="{{ route('dropSearchList', ['key' => 'arthur']) }}" class="dropbtn">စာရေးဆရာများ</a>
         <a href='{{ route('readingGuide') }}' class="dropbtn">စာအုပ်ဖတ်ညွှန်းများ</a>
         <a href="{{ route('servicePage') }}" class="dropbtn">ဝန်ဆောင်မှုများ</a>
 
         <button class="dropbtn">WISHLIST</button>
-        <button class="dropbtn">My Account</button>
+        <button class="dropbtn">My Account</button> --}}
+
 
     </div>
     <div class="busket">
