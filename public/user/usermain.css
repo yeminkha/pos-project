@@ -70,6 +70,7 @@ header {
     align-items: center;
     padding: 20px;
     width: 100%;
+    position: relative;
 }
 .noti {
     display: flex;
@@ -78,7 +79,6 @@ header {
     width: 120px;
     height: 50px;
 }
-
 .menu {
     display: none;
     visibility: hidden;
@@ -91,11 +91,13 @@ header {
     width: 40px;
     height: 40px;
 }
+
 .menuSlider {
     position: absolute;
-    top: 194px;
+    top: 0px;
     left: 0;
     width: 0;
+    bottom: 0;
     opacity: 0;
     min-height: 100vh;
     z-index: 999;
@@ -167,6 +169,9 @@ nav {
     top: 0;
     z-index: 9;
     height: 50px;
+}
+.nav-container{
+    position: relative;
 }
 .dropbtn {
     color: #523d06;
@@ -244,8 +249,6 @@ nav {
     width: 300px;
     transition: max-height o.5s ease-in-out;
 }
-
-
 
 .dropdown:hover .dropdown-content::before {
     opacity: 1;
