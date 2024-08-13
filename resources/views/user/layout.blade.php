@@ -28,7 +28,7 @@
             <img src="https://www.pannsattlann.com/wp-content/uploads/2022/01/cropped-cropped-cropped-Logo-2-10.png"
                 alt="" />
         </div>
-        <div class="inputGp" >
+        <div class="inputGp">
             @php
                 $tempOrderList = session('tempOrderList');
                 $totalPrice = 0;
@@ -246,17 +246,32 @@
                     <i class="fa-solid fa-chevron-down side"></i>
 
                 </div>
-                {{-- <button class="dropbtn">စာအုပ်များအားလုံး</button>
-                <a class="dropbtn" href="{{ route('dropSearchList', ['key' => 'cati']) }}">စာအုပ်အမျိုးအစား</a>
-                <a href="{{ route('dropSearchList', ['key' => 'arthur']) }}" class="dropbtn">စာရေးဆရာများ</a>
-                <a href='{{ route('readingGuide') }}' class="dropbtn">စာအုပ်ဖတ်ညွှန်းများ</a>
-                <a href="{{ route('servicePage') }}" class="dropbtn">ဝန်ဆောင်မှုများ</a>
-
-                <button class="dropbtn">WISHLIST</button>
-                <button class="dropbtn">My Account</button> --}}
-
-
+                <div class="wishList">
+                    <a class="dropbtn">WISHLIST</a>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">MY ACCOUNT</button>
+                    <div class="dropdown-content">
+                        @if (Auth::check() && Auth::user()->role != null)
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                {{-- <i class="fa-solid fa-right-to-bracket" style="margin-right: -5px"></i> --}}
+                                <input type="submit" value="အကောင့်ထွက်ရန်" style="display:inline;border:none;">
+                            </form>
+                            <a href="{{ route('accMain') }}">မိမိအကောင့်</a>
+                        @else
+                            <a href="{{ route('loginPage') }}">
+                                <i class="fa-solid fa-right-to-bracket" style="margin-right: 2px"></i>အကောင့်ဝင်ရန်
+                            </a>
+                            <a href="{{ route('registerPage') }}">
+                                <i class="fa-solid fa-user" style="margin-right: 2px"></i>အကောင့်သစ်ဖ္ငင့်ရန်
+                            </a>
+                        @endif
+                    </div>
+                    <i class="fa-solid fa-chevron-down side"></i>
+                </div>
             </div>
+        </div>
         </div>
 
     </header>

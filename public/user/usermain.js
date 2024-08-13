@@ -1,7 +1,13 @@
 $(document).ready(function () {
     $(".side").click(function () {
         $(this).toggleClass("down");
-        $(this).closest(".dropdown").find('.dropdown-content').toggleClass("menuactive");
+        $(this).closest(".dropdown").find('.dropdown-content').toggleClass("menuactive ");
+
+         // Remove 'down' class from all elements except the clicked one
+    $(".menuSlider").find('.down').not(this).removeClass("down");
+
+    // Remove 'menuactive' class from all dropdown contents except the one related to the clicked element
+    $(".dropdown").find('.dropdown-content').not($(this).closest(".dropdown").find('.dropdown-content')).removeClass("menuactive");
     });
 
     $(".aboutRegister").hover(function () {
