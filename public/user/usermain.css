@@ -2008,13 +2008,13 @@ footer ul {
 }
 
 .home .swiperContainer {
-    width: 1000px;
+    width: 90%;
     margin: 30px auto;
     position: relative;
 }
 .home .swiper-slide img {
-    width: 230px;
-    height: 300px;
+    width: 100%;
+    height: auto;
 }
 .home .swiperContainer .line {
     transform: perspective(200px) rotateX(10deg) scale(1);
@@ -2023,7 +2023,7 @@ footer ul {
     height: 30px;
     width: 100%;
     position: absolute;
-    top: 350px;
+    top: 270px;
     left: 0;
     box-shadow: 0px 20px 30px rgb(155, 155, 155);
 }
@@ -2034,12 +2034,15 @@ footer ul {
     font-size: 22px;
     margin-bottom: 20px;
 }
+.home .swiperContainer .swiper-slide a{
+    width: 30%;
+}
 .home .swiperContainer .btn,
 .home .category .btn {
     background-color: var(--theme-color);
     color: var(--main-color);
     padding: 5px 30px 3px;
-    margin: 60px auto 30px;
+    /* margin: 80px auto 30px; */
     display: block;
     width: 120px;
     text-align: center;

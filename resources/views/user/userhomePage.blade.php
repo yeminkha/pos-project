@@ -3,7 +3,8 @@
     <section class="home">
         <div class="imgContainer">
             @if (count($mostSoldProducts) > 0)
-            <img src="https://www.pannsattlann.com/wp-content/uploads/2023/05/Bestseller-Header-May-4.png" alt="" />
+                <img src="https://www.pannsattlann.com/wp-content/uploads/2023/05/Bestseller-Header-May-4.png"
+                    alt="" />
             @endif
         </div>
         @if (count($mostSoldProducts))
@@ -26,55 +27,63 @@
             <div class="swiperContainer">
                 <div class="title">Preorder နှင့် အသစ်ထွက်စာအုပ်များ</div>
                 <!-- Slider main container -->
-                <div class="swiper homeswiper">
-                    <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        @foreach ($newProducts as $item)
-                            <div class="swiper-slide">
-                                <a href="{{ route('bookPage', $item->id) }}">
-                                    <img src="{{ asset('/storage/books/' . $item->image) }}" alt="{{ $item->name }}">
-                                </a>
-                            </div>
-                        @endforeach
+                <div style="position: relative;width:100%; margin-bottom: 60px;">
+                    <div class="swiper homeswiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            @foreach ($newProducts as $item)
+                                <div class="swiper-slide">
+                                    <a href="{{ route('bookPage', $item->id) }}">
+                                        <img src="{{ asset('/storage/books/' . $item->image) }}" alt="{{ $item->name }}">
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
                     </div>
-                    <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="line"></div>
                 </div>
-                <div class="line"></div>
-                <div class="btn">ပိုမိုရှာရန်</div>
+                <div style="display: flex;justify-content:center;width:100%;">
+                    <div class="btn">ပိုမိုရှာရန်</div>
+                </div>
             </div>
         @endif
         @if (count($topRatedProducts))
             <div class="swiperContainer">
                 <div class="title">Top Rated Books</div>
                 <!-- Slider main container -->
-                <div class="swiper homeswiper">
-                    <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        @foreach ($topRatedProducts as $item)
-                            <div class="swiper-slide">
-                                <a href="{{ route('bookPage', $item->id) }}">
-                                    <img src="{{ asset('/storage/books/' . $item->image) }}" alt="{{ $item->name }}">
-                                </a>
-                            </div>
-                        @endforeach
+                <div style="position: relative;width:100%; margin-bottom: 60px;">
+                    <div class="swiper homeswiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            @foreach ($topRatedProducts as $item)
+                                <div class="swiper-slide">
+                                    <a href="{{ route('bookPage', $item->id) }}">
+                                        <img src="{{ asset('/storage/books/' . $item->image) }}" alt="{{ $item->name }}">
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
                     </div>
-
-                    <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="line"></div>
                 </div>
-                <div class="line"></div>
-                <div class="btn">ပိုမိုရှာရန်</div>
+                <div style="display: flex;justify-content:center;width:100%;">
+                    <div class="btn">ပိုမိုရှာရန်</div>
+                </div>
             </div>
         @endif
         @if (count($editorChoiceProducts))
-            <div class="swiperContainer">
-                <div class="title">Editor Choice</div>
-                <!-- Slider main container -->
+        <div class="swiperContainer">
+            <div class="title">Top Rated Books</div>
+            <!-- Slider main container -->
+            <div style="position: relative;width:100%; margin-bottom: 60px;">
                 <div class="swiper homeswiper">
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
@@ -87,14 +96,16 @@
                             </div>
                         @endforeach
                     </div>
-
                     <!-- If we need navigation buttons -->
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
                 </div>
                 <div class="line"></div>
+            </div>
+            <div style="display: flex;justify-content:center;width:100%;">
                 <div class="btn">ပိုမိုရှာရန်</div>
             </div>
+        </div>
         @endif
         @if (count($mainCategory))
             @foreach ($mainCategory as $mainCategoryName)
