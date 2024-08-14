@@ -170,7 +170,7 @@ nav {
     z-index: 9;
     height: 50px;
 }
-.nav-container{
+.nav-container {
     position: relative;
 }
 .dropbtn {
@@ -195,7 +195,7 @@ nav {
     transition-duration: 0.5s;
 }
 .dropdown .down {
-    transform: rotate(0) ;
+    transform: rotate(0);
     transition-duration: 0.5s;
 }
 .dropdown-content .mainCategory {
@@ -218,7 +218,7 @@ nav {
     background-color: #f1f1f1;
 }
 .dropdown-content {
-    width:200px;
+    width: 200px;
     top: 80px;
     opacity: 0;
     position: absolute;
@@ -227,7 +227,8 @@ nav {
     overflow-y: scroll;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 99999;
-    transition:max-height 0.5s ease-in-out, opacity 0.5s, transform 0.5s, visibility 0.5s;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s, transform 0.5s,
+        visibility 0.5s;
     visibility: hidden;
 }
 
@@ -884,16 +885,18 @@ footer ul {
 }
 .lrContainer {
     display: flex;
+    justify-content: center;
     width: 100%;
+    flex-wrap: wrap;
 }
 .lrContainer .left {
     width: 50%;
+    display: flex;
+    justify-content: right;
+    height: 450px;
 }
 .lrContainer .left .swiper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
+    width: 100%;
     z-index: 9;
 }
 .swiper-slide {
@@ -906,6 +909,11 @@ footer ul {
     width: 300px;
     height: 450px;
     object-fit: cover;
+}
+.cover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .cover img {
     height: 300px;
@@ -939,6 +947,9 @@ footer ul {
 .lrContainer .right table {
     border-collapse: collapse;
     width: 100%;
+    margin:0  auto;
+    display: block;
+
 }
 .lrContainer .right td,
 .lrContainer .right th {
@@ -1031,7 +1042,7 @@ footer ul {
 /* review */
 .reviewContainer {
     position: relative;
-    margin: 0 auto;
+    margin: 20px auto 10px;
     width: 90%;
 }
 .reviewContainer .reviewTitle {
@@ -1248,6 +1259,7 @@ footer ul {
     width: 70%;
     text-align: center;
 }
+
 .ReviewPage .container .descContainer .title {
     font-weight: bolder;
     margin-bottom: 20px;
@@ -2008,22 +2020,31 @@ footer ul {
 }
 
 .home .swiperContainer {
-    width: 90%;
+    width: 80%;
     margin: 30px auto;
     position: relative;
+}
+.home .swiperContainerInner {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.btnContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 .home .swiper-slide img {
     width: 100%;
     height: auto;
 }
+
 .home .swiperContainer .line {
     transform: perspective(200px) rotateX(10deg) scale(1);
     box-shadow: 0px 20px 100px #555;
     border-radius: 20px;
     height: 30px;
     width: 100%;
-    position: absolute;
-    top: 270px;
+    margin-top: -15px;
     left: 0;
     box-shadow: 0px 20px 30px rgb(155, 155, 155);
 }
@@ -2033,9 +2054,7 @@ footer ul {
     display: block;
     font-size: 22px;
     margin-bottom: 20px;
-}
-.home .swiperContainer .swiper-slide a{
-    width: 30%;
+    padding: 0px 10px;
 }
 .home .swiperContainer .btn,
 .home .category .btn {
@@ -2081,10 +2100,9 @@ footer ul {
         opacity: 1;
         transform: translateY(-30px);
     }
-     .dropdown-content{
+    .dropdown-content {
         min-width: 200px;
     }
-
 }
 @media (max-width: 930px) {
     nav {
@@ -2134,5 +2152,23 @@ footer ul {
     }
     .inputGp {
         padding: 0px;
+    }
+    .home .swiperContainer {
+        width: 100%;
+    }
+    .home .swiper-slide {
+        width: 30% !important;
+        margin-right: 10px;
+    }
+    .home .swiperContainer .title,
+    .home .category .title {
+        font-size: 16px;
+    }
+    .lrContainer .left {
+        width: 90%;
+
+    }
+    .lrContainer .right {
+        width: 100%;
     }
 }

@@ -27,13 +27,13 @@
             <div class="swiperContainer">
                 <div class="title">Preorder နှင့် အသစ်ထွက်စာအုပ်များ</div>
                 <!-- Slider main container -->
-                <div style="position: relative;width:100%; margin-bottom: 60px;">
+                <div class="swiperContainerInner">
                     <div class="swiper homeswiper">
                         <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
                             <!-- Slides -->
                             @foreach ($newProducts as $item)
-                                <div class="swiper-slide">
+                                <div class="swiper-slide" >
                                     <a href="{{ route('bookPage', $item->id) }}">
                                         <img src="{{ asset('/storage/books/' . $item->image) }}" alt="{{ $item->name }}">
                                     </a>
@@ -46,7 +46,7 @@
                     </div>
                     <div class="line"></div>
                 </div>
-                <div style="display: flex;justify-content:center;width:100%;">
+                <div class="btnContainer">
                     <div class="btn">ပိုမိုရှာရန်</div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
             <div class="swiperContainer">
                 <div class="title">Top Rated Books</div>
                 <!-- Slider main container -->
-                <div style="position: relative;width:100%; margin-bottom: 60px;">
+                <div class="swiperContainerInner">
                     <div class="swiper homeswiper">
                         <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
@@ -74,38 +74,39 @@
                     </div>
                     <div class="line"></div>
                 </div>
-                <div style="display: flex;justify-content:center;width:100%;">
+                <div class="btnContainer">
                     <div class="btn">ပိုမိုရှာရန်</div>
                 </div>
             </div>
         @endif
         @if (count($editorChoiceProducts))
-        <div class="swiperContainer">
-            <div class="title">Top Rated Books</div>
-            <!-- Slider main container -->
-            <div style="position: relative;width:100%; margin-bottom: 60px;">
-                <div class="swiper homeswiper">
-                    <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        @foreach ($editorChoiceProducts as $item)
-                            <div class="swiper-slide">
-                                <a href="{{ route('bookPage', $item->id) }}">
-                                    <img src="{{ asset('/storage/books/' . $item->image) }}" alt="{{ $item->name }}">
-                                </a>
-                            </div>
-                        @endforeach
+            <div class="swiperContainer">
+                <div class="title">Top Rated Books</div>
+                <!-- Slider main container -->
+                <div class="swiperContainerInner">
+                    <div class="swiper homeswiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            @foreach ($editorChoiceProducts as $item)
+                                <div class="swiper-slide">
+                                    <a href="{{ route('bookPage', $item->id) }}">
+                                        <img src="{{ asset('/storage/books/' . $item->image) }}"
+                                            alt="{{ $item->name }}">
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
                     </div>
-                    <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="line"></div>
                 </div>
-                <div class="line"></div>
+                <div class="btnContainer">
+                    <div class="btn">ပိုမိုရှာရန်</div>
+                </div>
             </div>
-            <div style="display: flex;justify-content:center;width:100%;">
-                <div class="btn">ပိုမိုရှာရန်</div>
-            </div>
-        </div>
         @endif
         @if (count($mainCategory))
             @foreach ($mainCategory as $mainCategoryName)
@@ -121,25 +122,29 @@
                     <div class="swiperContainer">
                         <div class="title">{{ json_decode($mainCategoryName)->name }}စာအုပ်ကောင်းများ</div>
                         <!-- Slider main container -->
-                        <div class="swiper homeswiper">
-                            <!-- Additional required wrapper -->
-                            <div class="swiper-wrapper">
-                                <!-- Slides -->
-                                @foreach ($topRatedProductsForCategory as $topitem)
-                                    <div class="swiper-slide">
-                                        <a href="{{ route('bookPage', $topitem->id) }}">
-                                            <img src="{{ asset('/storage/books/' . $topitem->image) }}"
-                                                alt="{{ $topitem->name }}">
-                                        </a>
-                                    </div>
-                                @endforeach
+                        <div class="swiperContainerInner">
+                            <div class="swiper homeswiper">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper">
+                                    <!-- Slides -->
+                                    @foreach ($topRatedProductsForCategory as $topitem)
+                                        <div class="swiper-slide">
+                                            <a href="{{ route('bookPage', $topitem->id) }}">
+                                                <img src="{{ asset('/storage/books/' . $topitem->image) }}"
+                                                    alt="{{ $topitem->name }}">
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <!-- If we need navigation buttons -->
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
                             </div>
-                            <!-- If we need navigation buttons -->
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
+                            <div class="line"></div>
                         </div>
-                        <div class="line"></div>
-                        <div class="btn">ပိုမိုရှာရန်</div>
+                        <div class="btnContainer">
+                            <div class="btn">ပိုမိုရှာရန်</div>
+                        </div>
                     </div>
                 @endif
             @endforeach

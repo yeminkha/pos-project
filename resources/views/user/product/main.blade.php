@@ -21,7 +21,7 @@
                     </div>
                 </div>
             @else
-                <div style="width: 50%;display:flex;justify-content:right;">
+                <div class="left" >
                     <div class="oneImage" style="width:80%;height:300px;margin:0 auto;display:flex;justify-content:right;">
                         <img src="{{ asset('/storage/books/' . $product->image) }}" width="300px " />
                     </div>
