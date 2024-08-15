@@ -896,8 +896,7 @@ footer ul {
     height: 450px;
 }
 .lrContainer .left .swiper {
-    width: 100%;
-    z-index: 9;
+    width: 60%;
 }
 .swiper-slide {
     background: #fff;
@@ -924,7 +923,7 @@ footer ul {
 }
 .lrContainer .right {
     width: 50%;
-    padding-right: 50px;
+    padding: 20px;
 }
 .lrContainer .right .title {
     font-size: 20px;
@@ -1192,6 +1191,7 @@ footer ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #523d06;
 }
 
 .reviewContainer .swiperContainer .swiper-slide img {
@@ -2167,8 +2167,19 @@ footer ul {
     .lrContainer .left {
         width: 90%;
 
+
+    }
+    .lrContainer .left .swiper {
+        width: 100%;
+        z-index: 9;
     }
     .lrContainer .right {
         width: 100%;
+    }
+    .booklastPage .box {
+        margin: 0;
+        width: 50%;
+        /* height: 200px;
+        overflow: hidden; */
     }
 }
