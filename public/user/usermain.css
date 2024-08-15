@@ -890,7 +890,7 @@ footer ul {
     flex-wrap: wrap;
 }
 .lrContainer .left {
-    width: 50%;
+    width: 40%;
     display: flex;
     justify-content: right;
     height: 450px;
@@ -909,7 +909,7 @@ footer ul {
     height: 450px;
     object-fit: cover;
 }
-.cover{
+.cover {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -922,8 +922,8 @@ footer ul {
     margin-right: auto;
 }
 .lrContainer .right {
-    width: 50%;
-    padding: 20px;
+    width: 60%;
+    padding: 0 20px;
 }
 .lrContainer .right .title {
     font-size: 20px;
@@ -946,9 +946,8 @@ footer ul {
 .lrContainer .right table {
     border-collapse: collapse;
     width: 100%;
-    margin:0  auto;
+    margin: 0 auto;
     display: block;
-
 }
 .lrContainer .right td,
 .lrContainer .right th {
@@ -2121,6 +2120,9 @@ footer ul {
     .inputGp form button {
         width: 15%;
     }
+    .lrContainer .left .swiper {
+        width: 100%;
+    }
 }
 
 @media (max-width: 700px) {
@@ -2132,6 +2134,18 @@ footer ul {
     }
     .inputGp form button {
         width: 15%;
+    }
+    .lrContainer .left {
+        width: 90%;
+    }
+    .lrContainer .right {
+        width: 100%;
+    }
+    .booklastPage .box {
+        margin: 0;
+        width: 30%;
+        /* height: 200px;
+        overflow: hidden; */
     }
 }
 
@@ -2166,12 +2180,6 @@ footer ul {
     }
     .lrContainer .left {
         width: 90%;
-
-
-    }
-    .lrContainer .left .swiper {
-        width: 100%;
-        z-index: 9;
     }
     .lrContainer .right {
         width: 100%;
