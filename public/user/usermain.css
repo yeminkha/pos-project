@@ -896,7 +896,7 @@ footer ul {
     height: 450px;
 }
 .lrContainer .left .swiper {
-    width: 60%;
+    width: 70%;
 }
 .swiper-slide {
     background: #fff;
@@ -1224,16 +1224,16 @@ footer ul {
     width: 100%;
 }
 .ReviewPage .container {
-    padding-top: 150px;
+    padding-top: 50px;
     margin: 0 auto;
-    width: 90%;
+    width: 930px;
     display: flex;
 }
 .ReviewPage .container .imgContainer,
 .ReviewPage
     .secContainer
     .bookContainer
-    .descContaine
+    .descContainer
     .innnerContainer
     .imgContainer {
     width: 50%;
@@ -1255,7 +1255,7 @@ footer ul {
     width: 50%;
 }
 .ReviewPage .container .descContainer .desc {
-    width: 70%;
+    width: 100%;
     text-align: center;
 }
 
@@ -1279,7 +1279,7 @@ footer ul {
     margin-bottom: 10px;
 }
 .ReviewPage .secContainer {
-    width: 80%;
+    width: 930px;
     padding: 50px 0;
     display: flex;
     justify-content: space-between;
@@ -1288,6 +1288,7 @@ footer ul {
 .ReviewPage .secContainer .paraContainer {
     width: 55%;
     text-align: justify;
+    background-color: #523d06;
 }
 .ReviewPage .secContainer .bookContainer {
     width: 35%;
@@ -1327,7 +1328,7 @@ footer ul {
     .descContainer
     .innerContainer
     .descContainer {
-    width: 45%;
+    width: 50%;
     position: relative;
 }
 .ReviewPage
@@ -2123,6 +2124,23 @@ footer ul {
     .lrContainer .left .swiper {
         width: 100%;
     }
+    .servicePage .card-container {
+        width: 80%;
+    }
+    .ReviewPage .container , .ReviewPage .secContainer{
+        width:100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .ReviewPage .secContainer {
+        justify-content: center;
+    }
+    .ReviewPage .secContainer .paraContainer {
+        width: 60%;
+    }
+    .ReviewPage .secContainer .bookContainer {
+        width: 40%;
+    }
 }
 
 @media (max-width: 700px) {
@@ -2147,6 +2165,15 @@ footer ul {
         /* height: 200px;
         overflow: hidden; */
     }
+    .servicePage .card-container {
+        width: 90%;
+    }
+    .ReviewPage .container .imgContainer{
+        width: 100%;
+    }
+    .ReviewPage .container .descContainer{
+        width: 100%;
+    }
 }
 
 @media (max-width: 500px) {
@@ -2155,6 +2182,13 @@ footer ul {
     }
     .inputGp form {
         width: 70%;
+    }
+    .card-front,
+    .card-back {
+        width: 100%;
+    }
+    .servicePage .card-container {
+        width: 100%;
     }
 }
 @media (max-width: 480px) {
@@ -2189,5 +2223,8 @@ footer ul {
         width: 50%;
         /* height: 200px;
         overflow: hidden; */
+    }
+    .explain {
+        right:10px;
     }
 }
