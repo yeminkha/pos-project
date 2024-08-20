@@ -587,42 +587,50 @@ footer ul {
 
 /* reading guide section */
 .readingGuide {
-    width: 80%;
+    width: 90%;
     margin: 0 auto 20px;
 }
 .readingGuide .container {
     margin-top: 50px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 .readingGuide .container .left {
     border: 1px solid #9c7200;
-    padding: 20px;
+    padding: 10px;
     width: 70%;
     display: flex;
     flex-wrap: wrap;
 }
 .readingGuide .container .left .item {
-    padding: 40px 20px 0;
+    padding: 20px 20px 0;
     display: flex;
     background-color: #efefef;
     justify-content: space-evenly;
-    margin-top: 30px;
+    margin-bottom: 30px;
 }
 .readingGuide .container .left .item .item-left {
-    width: 35%;
+    width: 40%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
 }
 .readingGuide .container .left .item .item-left img {
-    height: 350px;
-    width: 100%;
+    width: 120%;
     object-fit: cover;
+    transform: translateX(15%);
 }
 .readingGuide .container .left .item .item-right {
     width: 65%;
-    padding: 20px;
+    padding:0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 .readingGuide .container .left .item .item-right .title {
-    margin: 30px 0 10px 0;
+    margin: 0 0 10px 0;
     font-size: 20px;
 }
 .readingGuide .container .left .item .item-right .arthur i {
@@ -651,7 +659,7 @@ footer ul {
     display: block;
 }
 .readingGuide .container .right {
-    width: 25%;
+    width: 28%;
 }
 .readingGuide .container .right .rightInner {
     border: 1px solid #9c7200;
@@ -2155,6 +2163,15 @@ footer ul {
         justify-content: space-between;
     }
 }
+@media (max-width:870px) {
+
+    .readingGuide .container .right,
+    .readingGuide .container .left {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+}
 
 @media (max-width: 700px) {
     .logo img {
@@ -2195,6 +2212,19 @@ footer ul {
     .moreBooks .innerContainer {
         justify-content: center;
     }
+    .readingGuide .container .left .item .item-left img {
+        width: 100%;
+        object-fit: cover;
+        transform: translateX(0);
+    }
+
+    .readingGuide .container .left .item .item-right p {
+        position: absolute;
+        left: 0;
+        top: 100%; /* Start text underneath the left and right divs */
+        width: calc(65% + 200px); /* Adjust width to cover both left and right */
+    }
+
 }
 
 @media (max-width: 500px) {
