@@ -1228,6 +1228,8 @@ footer ul {
     margin: 0 auto;
     width: 930px;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .ReviewPage .container .imgContainer,
 .ReviewPage
@@ -1283,16 +1285,15 @@ footer ul {
     padding: 50px 0;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin: 0 auto;
 }
 .ReviewPage .secContainer .paraContainer {
     width: 55%;
     text-align: justify;
-    background-color: #523d06;
 }
 .ReviewPage .secContainer .bookContainer {
     width: 35%;
-    height: 250px;
 }
 .ReviewPage .secContainer .bookContainer .descContainer .innerContainer {
     width: 90%;
@@ -1300,6 +1301,7 @@ footer ul {
     border: 1px solid #9c7200;
     padding: 10px;
     display: flex;
+    background-color: #523d06;
 }
 .ReviewPage
     .secContainer
@@ -1404,7 +1406,7 @@ footer ul {
 }
 
 .moreBooks {
-    width: 85%;
+    width: 80%;
     margin: 0 auto 40px;
 }
 .moreBooks .title {
@@ -1413,12 +1415,15 @@ footer ul {
 }
 .moreBooks .innerContainer {
     display: flex;
+
+    flex-wrap: wrap;
     width: 100%;
     justify-content: space-between;
 }
 .moreBooks .innerContainer .bookContainer {
-    width: 35%;
+    width: 330px;
     display: flex;
+    margin-top: 20px;
 }
 .moreBooks .innerContainer .bookContainer .imgContainer {
     width: 40%;
@@ -2127,8 +2132,9 @@ footer ul {
     .servicePage .card-container {
         width: 80%;
     }
-    .ReviewPage .container , .ReviewPage .secContainer{
-        width:100%;
+    .ReviewPage .container,
+    .ReviewPage .secContainer {
+        width: 100%;
         padding-left: 10px;
         padding-right: 10px;
     }
@@ -2140,6 +2146,13 @@ footer ul {
     }
     .ReviewPage .secContainer .bookContainer {
         width: 40%;
+    }
+    .moreBooks {
+        width: 100%;
+        padding: 0 20px;
+    }
+    .moreBooks .innerContainer {
+        justify-content: space-between;
     }
 }
 
@@ -2168,11 +2181,19 @@ footer ul {
     .servicePage .card-container {
         width: 90%;
     }
-    .ReviewPage .container .imgContainer{
+    .ReviewPage .container .imgContainer {
+        width: 50%;
+    }
+    .ReviewPage .container .descContainer {
         width: 100%;
     }
-    .ReviewPage .container .descContainer{
+    .ReviewPage .secContainer .paraContainer,
+    .ReviewPage .secContainer .bookContainer {
         width: 100%;
+        padding: 20px;
+    }
+    .moreBooks .innerContainer {
+        justify-content: center;
     }
 }
 
@@ -2225,6 +2246,6 @@ footer ul {
         overflow: hidden; */
     }
     .explain {
-        right:10px;
+        right: 10px;
     }
 }

@@ -70,7 +70,8 @@
             @endif
             <div class="innerContainer">
                 @if (count($productList) > 1)
-                    @foreach ($productList as $item)
+                    @for ($i = 0;$i < 3 && $i < count($productList); $i++)
+                    @php $item = $productList[$i]; @endphp
                         <div class="bookContainer">
                             <div class="imgContainer">
                                 <img src="{{ asset('storage/books/' . $item->image) }}" alt="" />
@@ -85,11 +86,11 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    @endfor
                 @endif
             </div>
 
-            <div class="allbookBtn"><a href="{{route('readingGuide')}}">All BOOKS REVIEWS</a></div>
+            <div class="allbookBtn"><a href="{{ route('readingGuide') }}">All BOOKS REVIEWS</a></div>
         </div>
     </section>
 @endsection
