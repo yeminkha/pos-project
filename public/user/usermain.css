@@ -596,6 +596,9 @@ footer ul {
     justify-content: space-between;
     flex-wrap: wrap;
 }
+.readingGuide .container .add{
+    display: none;
+}
 .readingGuide .container .left {
     border: 1px solid #9c7200;
     padding: 10px;
@@ -2212,17 +2215,17 @@ footer ul {
     .moreBooks .innerContainer {
         justify-content: center;
     }
+    .readingGuide{
+        width: 100%;
+    }
+    .readingGuide .container .right, .readingGuide .container .left,
+    .readingGuide .container .right, .readingGuide .container .right{
+        width: 100%;
+    }
     .readingGuide .container .left .item .item-left img {
         width: 100%;
         object-fit: cover;
         transform: translateX(0);
-    }
-
-    .readingGuide .container .left .item .item-right p {
-        position: absolute;
-        left: 0;
-        top: 100%; /* Start text underneath the left and right divs */
-        width: calc(65% + 200px); /* Adjust width to cover both left and right */
     }
 
 }
