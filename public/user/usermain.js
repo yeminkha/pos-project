@@ -1,4 +1,30 @@
 $(document).ready(function () {
+    function handleResize() {
+        const removeElements = document.querySelectorAll(".readingGuidepara");
+        const addElements = document.querySelectorAll(".add");
+
+        if (window.innerWidth <= 700) {
+            removeElements.forEach(element => {
+                element.style.display = "none";
+            });
+            addElements.forEach(element => {
+                element.style.display = "block";
+            });
+        } else {
+            removeElements.forEach(element => {
+                element.style.display = "block";
+            });
+            addElements.forEach(element => {
+                element.style.display = "none";
+            });
+        }
+    }
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+
+
     $(".side").click(function () {
         $(this).toggleClass("down");
         $(this)

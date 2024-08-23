@@ -1,23 +1,6 @@
 @extends('user.layout')
 @section('readingGuide')
     <section class="readingGuide">
-        {{-- <script>
-            $(document).ready(function() {
-                function handleResize() {
-                    const remove = document.querySelector('.remove');
-                    const add = document.querySelector('.add');
-
-                    if (window.innerWidth <= 700) {
-                        remove.classList.css("display", "none");
-                    } else {
-                        add.classList.css("display", "block");
-                    }
-                }
-
-                window.addEventListener('resize', handleResize);
-                handleResize();
-            })
-        </script> --}}
         <div class="container">
             <div class="left">
                 @foreach ($productList as $item)
@@ -33,17 +16,18 @@
                                 <div class="readingGuideTitle">
                                     <a href="">{{ $item->reading_guide }}</a>
                                 </div>
-                                <div class="readingGuidepara remove">
+                                <div class="readingGuidepara">
                                     <p>
                                         {{ mb_strimwidth($item->description, 0, 250, '...') }} </p>
                                 </div>
                                 <a href="{{ route('readingGuideBookPage', $item->id) }}" class="bookBtn">ဖတ်ညွှန်းဖတ်မည်</a>
                             </div>
                         </div>
-                        <div class="readingGuidepara add">
+                        <div class=" add">
                             <p>
                                 {{ mb_strimwidth($item->description, 0, 250, '...') }} </p>
-                        </div>
+                            </div>
+
                     </div>
                 @endforeach
             </div>

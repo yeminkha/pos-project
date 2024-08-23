@@ -598,6 +598,8 @@ footer ul {
 }
 .readingGuide .container .add{
     display: none;
+    width: 100%;
+    margin:10px 0;
 }
 .readingGuide .container .left {
     border: 1px solid #9c7200;
@@ -612,6 +614,7 @@ footer ul {
     background-color: #efefef;
     justify-content: space-evenly;
     margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 .readingGuide .container .left .item .item-left {
     width: 40%;
@@ -625,7 +628,7 @@ footer ul {
     transform: translateX(15%);
 }
 .readingGuide .container .left .item .item-right {
-    width: 65%;
+    width: 60%;
     padding:0 20px;
     display: flex;
     justify-content: center;
@@ -651,10 +654,11 @@ footer ul {
     text-align: justify;
     margin-bottom: 20px;
 }
-.readingGuide .container .left .item .item-right .bookBtn {
+.readingGuide .container .left .item .item-right .bookBtn ,
+.readingGuide .container .left .item .add a{
     background-color: var(--theme-color);
     border-radius: 20px;
-    width: 300px;
+    width: 200px;
     text-align: center;
     padding: 5px;
     color: var(--main-color);
