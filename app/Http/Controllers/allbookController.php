@@ -73,6 +73,7 @@ class allbookController extends Controller
 
     public function dropSearchList($key)
     {
+        // dd($key);
         // $category = Category::join('products', 'categories.id', '=', 'products.category_name')
         //     ->select('categories.*')
         //     ->withCount('products')
@@ -93,8 +94,6 @@ class allbookController extends Controller
                     ->groupBy('category_name')
                     ->get();
                 if (isEmpty($mainList)) {
-                    return back();
-                } else {
                     $data = [
                         'title' => $title,
                         'list' => $list,
@@ -102,6 +101,8 @@ class allbookController extends Controller
                         'productCounts' => $productCounts
                     ];
                     return view('user/dropList', $data);
+                } else {
+                    return back();
                 }
                 break;
             case 'arthur':
@@ -118,10 +119,9 @@ class allbookController extends Controller
                 $productCounts = Product::select('arthur', DB::raw('COUNT(*) as product_count'))
                     ->groupBy('arthur')
                     ->get();
+                // dd($productCounts);
                 $arthurs = arthur::select('name')->distinct()->pluck('name')->toArray();
-                if (isEmpty($mainList)) {
-                    return back();
-                } else {
+                if (isEmpty($productCounts)) {
                     $data = [
                         'title' => $title,
                         'list' => $list,
@@ -130,6 +130,8 @@ class allbookController extends Controller
                         'arthurs' => $arthurs
                     ];
                     return view('user/arthurDrop', $data);
+                } else {
+                    return back();
                 }
 
                 break;
