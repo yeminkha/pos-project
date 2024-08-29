@@ -127,27 +127,33 @@
                 </div>
             </div>
             <div class="gift-card">
-                <div class="header">
+                <div class="left">
                     <input type="checkbox" class="cb" name="smileGift" />
-
                     <span>'အပြုံးလက်ဆောင်' ထုပ်ပိုးမှုဖြင့် ပို့ဆောင်ပါ</span>
+                    <textarea name="wishLetter" disabled style="display: block"></textarea>
+                    <small style="display: block">Wish Card တွင် ရေးသားလိုသော အမှတ်တရစာသား</small>
+
+                </div>
+                <div class="right">
                     <div class="about"><i class="fa-solid fa-question"></i></div>
-                </div>
-                <div class="text-photo">
-                    <textarea name="wishLetter" disabled></textarea>
                     <img src="https://www.pannsattlann.com/wp-content/uploads/2022/01/Icon-Final.png" alt="" />
-                </div>
-                <div class="radioGp">
-                    <small>Wish Card တွင် ရေးသားလိုသော အမှတ်တရစာသား</small>
-                    <div class="radio" name='giftTheme'>
-                        <input type="radio" id="light" name="theme" value="light" disabled />
-                        <label for="light">Light Theme Package
-                            <i class="bx bx-photo-album"></i> </label><br />
-                        <input type="radio" id="dark" name="theme" value="dark" disabled />
-                        <label for="dark">Dark Theme Package
-                            <i class="bx bx-photo-album"></i> </label><br />
+                    <div class="radioGp">
+                        <div class="radio" name='giftTheme'>
+                            <input type="radio" id="light" name="theme" value="light" disabled />
+                            <label for="light">Light Theme Package
+                                <i class="bx bx-photo-album"></i> </label><br />
+                            <input type="radio" id="dark" name="theme" value="dark" disabled />
+                            <label for="dark">Dark Theme Package
+                                <i class="bx bx-photo-album"></i> </label><br />
+                        </div>
                     </div>
                 </div>
+                {{-- <div class="header">
+
+                </div>
+                <div class="text-photo">
+                </div> --}}
+
             </div>
             <div class="tableGp ">
                 <div class="title">လူကြီးမင်း ဝယ်ယူလိုသော</div>

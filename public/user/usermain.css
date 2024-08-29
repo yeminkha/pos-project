@@ -1647,9 +1647,14 @@ footer ul {
 .accountMainPage .imgCon {
     width: 30%;
 }
-.orderListPage .imgCon img,
+
 .accountMainPage .imgCon img {
     width: 40%;
+    display: block;
+    margin: 0 auto;
+}
+.orderListPage .imgCon img{
+    width: 60%;
     display: block;
     margin: 0 auto;
 }
@@ -1903,39 +1908,53 @@ footer ul {
     border-radius: 20px;
     padding: 10px;
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-.gift-card .header span {
+.gift-card .left {
+    min-width: 200px;
+    padding: 10px;
+}
+.gift-card .right {
+    min-width:  100px;
+    padding: 10px;
+    display: flex;
+}
+.gift-card  span {
     font-size: 14px;
     color: var(--side-color);
 }
-.text-photo {
+/* .text-photo {
     margin-top: -30px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: end;
-}
+} */
 .gift-card .about {
     position: absolute;
     top: 10px;
     right: 20px;
 }
-.text-photo textarea {
-    width: 65%;
+.gift-card .left textarea {
+    min-width: 100%;
     height: 100px;
     padding: 10px;
     border: 1px solid var(--theme-color);
     outline: none;
     border-radius: 5px;
     background-color: white;
+    margin: 10px 0;
 }
-.text-photo img {
-    width: 25%;
+.gift-card .right img {
+    width: 90px;
     margin-right: 20px;
 }
 .radioGp {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
 }
 .radioGp label,
 .radioGp small {
@@ -2303,5 +2322,8 @@ footer ul {
     }
     .getInfo {
         padding:  20px;
+    }
+    .gift-card{
+        width: 95%;
     }
 }
