@@ -917,10 +917,11 @@ footer ul {
 .lrContainer .left {
     width: 40%;
     display: flex;
-    justify-content: right;
+    justify-content: center;
     height: 450px;
 }
 .lrContainer .left .swiper {
+    display: block;
     width: 70%;
 }
 .swiper-slide {
@@ -2206,6 +2207,9 @@ footer ul {
     }
     .lrContainer .left {
         width: 90%;
+    }
+    .lrContainer .left .oneImage{
+        justify-content: center !important;
     }
     .lrContainer .right {
         width: 100%;

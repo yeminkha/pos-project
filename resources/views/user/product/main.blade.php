@@ -21,7 +21,7 @@
                     </div>
                 </div>
             @else
-                <div class="left" >
+                <div class="left">
                     <div class="oneImage" style="width:80%;height:300px;margin:0 auto;display:flex;justify-content:right;">
                         <img src="{{ asset('/storage/books/' . $product->image) }}" width="300px " />
                     </div>
@@ -81,8 +81,10 @@
                 </div>
                 @if ($tempOrderList != null)
                     <div class="checkCart">
-                        <div class="checkList">စာရင်းကြည့်မယ်</div>
-                        <div class="order">အမှာတင်မယ်</div>
+                        <div class="checkList">
+                            <a href="{{ route('tempOrderListPage') }}">စာရင်းကြည့်မယ်</a>
+                        </div>
+                        <div class="order"><a href="{{ route('orderPage') }}">အမှာတင်မယ်</a></div>
                     </div>
                     {{-- <div class="likeShare">
                         <div class="likeBtn"><i class="bx bxs-heart"></i></div>
@@ -184,7 +186,7 @@
 
             <div class="swiperContainer">
                 <div class="swiperArthur">{{ $product->arthur }} စာအုပ်များ</div>
-                <div class="swiper2 swiper mySwiper" >
+                <div class="swiper2 swiper mySwiper">
                     <div class="swiper-wrapper" style="width: 100%;">
                         @if (count($suggest) >= 4)
                             @foreach ($suggest as $item)
