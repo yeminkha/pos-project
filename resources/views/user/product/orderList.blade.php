@@ -3,7 +3,7 @@
     <section class="orderListPage">
         @if (session()->has('tempOrderList') && count(session('tempOrderList')) > 0)
             <div class="title">လူကြီးမင်း၏ ဈေးဝယ်ခြင်း</div>
-            <table rules="all">
+            <table rules="all" class="repoHidTable">
                 <tr>
                     <th colspan="2" class="border-remove"></th>
                     <th>စာအုပ်</th>
@@ -48,6 +48,42 @@
                             <div class="save">ဝယ်ယူမည့်စာရင်းကို ထပ်မှန်သိမ်းဆည်းမည်</div>
                         </div>
                     </td>
+                </tr>
+            </table>
+            <table rules="rows" class="repoVisiTable" style="display: none">
+                <tr>
+                    <th>စာအုပ်တန်ဖိုး</th>
+                    @php
+                        $tempOrderList = session('tempOrderList');
+                        $totalPrice = 0;
+                        $totalQuantity = 0;
+                        $deli = 0;
+
+                        foreach ($tempOrderList as $item) {
+                            // Cast to integers before performing multiplication
+                            $totalPrice += (int) $item['price'] * (int) $item['quantity'];
+                            $totalQuantity += (int) $item['quantity'];
+                        }
+
+                        // Calculate delivery charges
+                        if ($totalQuantity > 1) {
+                            $deli = 2000 + 100 * ($totalQuantity - 1);
+                        } else {
+                            $deli = 2000;
+                        }
+
+                        // Calculate total
+                        $total = $totalPrice + $deli;
+                    @endphp
+                    <td>{{ $totalPrice }} (ကျပ်)</td>
+                </tr>
+                <tr>
+                    <th>ပို့ဆောင်ခ(ခန့်မှန်းခြေ) 1X2000, 1X100</th>
+                    <td>{{ $deli }} (ကျပ်)</td>
+                </tr>
+                <tr>
+                    <th>စုစုပေါင်း</th>
+                    <td>{{ $total }} (ကျပ်)</td>
                 </tr>
             </table>
             <div class="chartContianer">

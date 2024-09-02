@@ -1645,7 +1645,7 @@ footer ul {
 }
 .orderListPage .imgCon,
 .accountMainPage .imgCon {
-    width: 30%;
+    width: 20%;
 }
 
 .accountMainPage .imgCon img {
@@ -1654,7 +1654,7 @@ footer ul {
     margin: 0 auto;
 }
 .orderListPage .imgCon img{
-    width: 60%;
+    width: 80%;
     display: block;
     margin: 0 auto;
 }
@@ -2265,6 +2265,14 @@ footer ul {
         width: 100%;
         object-fit: cover;
         transform: translateX(0);
+    }
+
+    .orderListPage .repoHidTable{
+        display: none;
+    }
+
+    .orderListPage .repoVisiTable{
+        display: block!important;
     }
 
 }
