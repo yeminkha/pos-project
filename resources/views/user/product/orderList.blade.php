@@ -51,40 +51,73 @@
                 </tr>
             </table>
             <table rules="rows" class="repoVisiTable" style="display: none">
-                <tr>
-                    <th>စာအုပ်တန်ဖိုး</th>
-                    @php
-                        $tempOrderList = session('tempOrderList');
-                        $totalPrice = 0;
-                        $totalQuantity = 0;
-                        $deli = 0;
+                @php
+                    $tempOrderList = session('tempOrderList');
+                @endphp
+                @foreach ($tempOrderList as $key => $item)
+                    <input type="hidden" class="productId" value="{{ $item['productId'] }}">
+                    <input type="hidden" class="name" value="{{ $item['name'] }}">
+                    <input type="hidden" class="price" value="{{ $item['price'] }}">
+                    <input type="hidden" class="image" value="{{ $item['image'] }}">
+                    <tr>
+                        <td class="deleBtn delete">
+                            <input type="hidden" class="voucherCode" value="{{ $item['voucherCode'] }}">
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </td>
+                    </tr>
+                    <tr colspan="2">
+                        <td class="imgCon" style="width:100%;margin:0 auto;display:block;">
+                            <img src="{{ asset('storage/books/' . $item['image']) }}" alt="" />
+                        </td>
+                    </tr>
 
-                        foreach ($tempOrderList as $item) {
-                            // Cast to integers before performing multiplication
-                            $totalPrice += (int) $item['price'] * (int) $item['quantity'];
-                            $totalQuantity += (int) $item['quantity'];
-                        }
+                    <tr>
+                        <th>စာအုပ်</th>
+                        <td> <a href="">{{ $item['name'] }}</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>တန်ဖိုး</th>
+                        <td>{{ $item['price'] }} (ကျပ်)</td>
+                    </tr>
+                    <tr>
+                        <th>အရေအတွက်</th>
+                        <td class="ipCon" title="အရေအတွက်">
+                            <input type="number" min="0" value="{{ $item['quantity'] }}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>စုစုပေါင်း</th>
+                        <td class='total'>{{ $item['total'] }} (ကျပ်)</td>
+                    </tr>
+                @endforeach
 
-                        // Calculate delivery charges
-                        if ($totalQuantity > 1) {
-                            $deli = 2000 + 100 * ($totalQuantity - 1);
-                        } else {
-                            $deli = 2000;
-                        }
-
-                        // Calculate total
-                        $total = $totalPrice + $deli;
-                    @endphp
-                    <td>{{ $totalPrice }} (ကျပ်)</td>
-                </tr>
-                <tr>
-                    <th>ပို့ဆောင်ခ(ခန့်မှန်းခြေ) 1X2000, 1X100</th>
-                    <td>{{ $deli }} (ကျပ်)</td>
-                </tr>
-                <tr>
-                    <th>စုစုပေါင်း</th>
-                    <td>{{ $total }} (ကျပ်)</td>
-                </tr>
+                {{-- @php
+                    $tempOrderList = session('tempOrderList');
+                @endphp
+                @foreach ($tempOrderList as $key => $item)
+                    <tr class="item">
+                        <input type="hidden" class="productId" value="{{ $item['productId'] }}">
+                        <input type="hidden" class="name" value="{{ $item['name'] }}">
+                        <input type="hidden" class="price" value="{{ $item['price'] }}">
+                        <input type="hidden" class="image" value="{{ $item['image'] }}">
+                        <td class="deleBtn delete">
+                            <input type="hidden" class="voucherCode" value="{{ $item['voucherCode'] }}">
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </td>
+                        <td class="imgCon">
+                            <img src="{{ asset('storage/books/' . $item['image']) }}" alt="" />
+                        </td>
+                        <td>
+                            <a href="">{{ $item['name'] }}</a>
+                        </td>
+                        <td>{{ $item['price'] }} (ကျပ်)</td>
+                        <td class="ipCon" title="အရေအတွက်">
+                            <input type="number" min="0" value="{{ $item['quantity'] }}" />
+                        </td>
+                        <td class='total'>{{ $item['total'] }} (ကျပ်)</td>
+                    </tr>
+                @endforeach --}}
             </table>
             <div class="chartContianer">
                 <div class="chart">
