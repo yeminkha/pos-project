@@ -60,14 +60,15 @@
                     <input type="hidden" class="price" value="{{ $item['price'] }}">
                     <input type="hidden" class="image" value="{{ $item['image'] }}">
                     <tr>
-                        <td class="deleBtn delete">
+                        <td class="deleBtn delete" style="text-align: start">
                             <input type="hidden" class="voucherCode" value="{{ $item['voucherCode'] }}">
                             <i class="fa-solid fa-circle-xmark"></i>
                         </td>
                     </tr>
-                    <tr colspan="2">
-                        <td class="imgCon" style="width:100%;margin:0 auto;display:block;">
-                            <img src="{{ asset('storage/books/' . $item['image']) }}" alt="" />
+                    <tr>
+                        <td colspan="2" class="imgCon">
+                            <img style="width:70%;margin:0 auto;display:block;"
+                                src="{{ asset('storage/books/' . $item['image']) }}" alt="" />
                         </td>
                     </tr>
 
@@ -92,32 +93,15 @@
                     </tr>
                 @endforeach
 
-                {{-- @php
-                    $tempOrderList = session('tempOrderList');
-                @endphp
-                @foreach ($tempOrderList as $key => $item)
-                    <tr class="item">
-                        <input type="hidden" class="productId" value="{{ $item['productId'] }}">
-                        <input type="hidden" class="name" value="{{ $item['name'] }}">
-                        <input type="hidden" class="price" value="{{ $item['price'] }}">
-                        <input type="hidden" class="image" value="{{ $item['image'] }}">
-                        <td class="deleBtn delete">
-                            <input type="hidden" class="voucherCode" value="{{ $item['voucherCode'] }}">
-                            <i class="fa-solid fa-circle-xmark"></i>
-                        </td>
-                        <td class="imgCon">
-                            <img src="{{ asset('storage/books/' . $item['image']) }}" alt="" />
-                        </td>
-                        <td>
-                            <a href="">{{ $item['name'] }}</a>
-                        </td>
-                        <td>{{ $item['price'] }} (ကျပ်)</td>
-                        <td class="ipCon" title="အရေအတွက်">
-                            <input type="number" min="0" value="{{ $item['quantity'] }}" />
-                        </td>
-                        <td class='total'>{{ $item['total'] }} (ကျပ်)</td>
-                    </tr>
-                @endforeach --}}
+                <tr>
+                    <td colspan="6">
+                        <div class="tbFooter">
+                            <div class="couponSer">
+                            </div>
+                            <div class="save">ဝယ်ယူမည့်စာရင်းကို ထပ်မှန်သိမ်းဆည်းမည်</div>
+                        </div>
+                    </td>
+                </tr>
             </table>
             <div class="chartContianer">
                 <div class="chart">
