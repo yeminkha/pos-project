@@ -165,48 +165,76 @@
 @section('jquery')
     <script>
         $(document).ready(function() {
-            $tempOrderlist = [];
+
             $('.save').click(function() {
                 var items = [];
 
-                $('.orderListPage .item').each(function(index) {
-                    var image = $(this).find('.image').val();
-                    var name = $(this).find('.name').val();
-                    var price = $(this).find('.price').val();
-                    var productId = $(this).find('.productId').val();
-                    var voucherCode = $(this).find('.voucherCode').val();
-                    var quantity = $(this).find('input[type="number"]').val();
+                if ($('.orderListPage .repoVisiTable').lenght > 0) {
+                    $('.orderListPage .repoVisiTable .item').each(function(index) {
+                        var image = $(this).find('.image').val();
+                        var name = $(this).find('.name').val();
+                        var price = $(this).find('.price').val();
+                        var productId = $(this).find('.productId').val();
+                        var voucherCode = $(this).find('.voucherCode').val();
+                        var quantity = $(this).find('input[type="number"]').val();
 
-                    var item = {
-                        productId: productId,
-                        voucherCode: voucherCode,
-                        quantity: quantity,
-                        image: image,
-                        name: name,
-                        price: price,
-                        total: parseInt(price) * quantity,
-                    };
+                        var item = {
+                            productId: productId,
+                            voucherCode: voucherCode,
+                            quantity: quantity,
+                            image: image,
+                            name: name,
+                            price: price,
+                            total: parseInt(price) * quantity,
+                        };
 
-                    items.push(item);
-                });
-                console.log(items);
+                        items.push(item);
+                    });
+                    console.log('small');
+                    console.log(items);
+                };
 
-                $.ajax({
-                    url: 'updateSessionData',
-                    type: 'get',
-                    dataType: 'json',
-                    data: {
-                        items: items
-                    },
-                    success: function(response) {
-                        // Handle success response
-                        location.reload();
-                    },
-                    error: function(xhr, status, error) {
-                        // Handle error response
-                        console.error('Error updating session data:', error);
-                    }
-                });
+                if ($('.orderListPage .repoHidTable').lenght > 0) {
+                    $('.orderListPage .repoHidTable .item').each(function(index) {
+                        var image = $(this).find('.image').val();
+                        var name = $(this).find('.name').val();
+                        var price = $(this).find('.price').val();
+                        var productId = $(this).find('.productId').val();
+                        var voucherCode = $(this).find('.voucherCode').val();
+                        var quantity = $(this).find('input[type="number"]').val();
+
+                        var item = {
+                            productId: productId,
+                            voucherCode: voucherCode,
+                            quantity: quantity,
+                            image: image,
+                            name: name,
+                            price: price,
+                            total: parseInt(price) * quantity,
+                        };
+
+                        items.push(item);
+                    });
+                    console.log('large');
+                    console.log(items);
+                }
+
+                // $.ajax({
+                //     url: 'updateSessionData',
+                //     type: 'get',
+                //     dataType: 'json',
+                //     data: {
+                //         items: items
+                //     },
+                //     success: function(response) {
+                //         // Handle success response
+                //         location.reload();
+                //     },
+                //     error: function(xhr, status, error) {
+                //         // Handle error response
+                //         console.error('Error updating session data:', error);
+                //     }
+                // });
 
             });
         });

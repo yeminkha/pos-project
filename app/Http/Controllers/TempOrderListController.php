@@ -93,6 +93,8 @@ class TempOrderListController extends Controller
 
     public function updateSessionData(Request $request)
     {
+
+
         // Remove existing 'tempOrderList' session data
         $request->session()->forget('tempOrderList');
 
