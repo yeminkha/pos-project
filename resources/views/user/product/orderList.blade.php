@@ -3,7 +3,7 @@
     <section class="orderListPage">
         @if (session()->has('tempOrderList') && count(session('tempOrderList')) > 0)
             <div class="title">လူကြီးမင်း၏ ဈေးဝယ်ခြင်း</div>
-            <table rules="all" class="repoHidTable">
+            <table rules="all" class="repoHidTable" style="display: block">
                 <tr>
                     <th colspan="2" class="border-remove"></th>
                     <th>စာအုပ်</th>
@@ -169,7 +169,7 @@
             $('.save').click(function() {
                 var items = [];
 
-                if ($('.orderListPage .repoVisiTable').lenght > 0) {
+                if ($('.orderListPage .repoVisiTable').css('display') === 'block')  {
                     $('.orderListPage .repoVisiTable .item').each(function(index) {
                         var image = $(this).find('.image').val();
                         var name = $(this).find('.name').val();
@@ -190,11 +190,9 @@
 
                         items.push(item);
                     });
-                    console.log('small');
-                    console.log(items);
                 };
 
-                if ($('.orderListPage .repoHidTable').lenght > 0) {
+                if ($('.orderListPage .repoHidTable').css('display') === 'block') {
                     $('.orderListPage .repoHidTable .item').each(function(index) {
                         var image = $(this).find('.image').val();
                         var name = $(this).find('.name').val();
@@ -215,26 +213,24 @@
 
                         items.push(item);
                     });
-                    console.log('large');
-                    console.log(items);
                 }
 
-                // $.ajax({
-                //     url: 'updateSessionData',
-                //     type: 'get',
-                //     dataType: 'json',
-                //     data: {
-                //         items: items
-                //     },
-                //     success: function(response) {
-                //         // Handle success response
-                //         location.reload();
-                //     },
-                //     error: function(xhr, status, error) {
-                //         // Handle error response
-                //         console.error('Error updating session data:', error);
-                //     }
-                // });
+                $.ajax({
+                    url: 'updateSessionData',
+                    type: 'get',
+                    dataType: 'json',
+                    data: {
+                        items: items
+                    },
+                    success: function(response) {
+                        // Handle success response
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle error response
+                        console.error('Error updating session data:', error);
+                    }
+                });
 
             });
         });
