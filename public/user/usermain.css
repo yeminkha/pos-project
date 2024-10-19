@@ -2268,7 +2268,7 @@ footer ul {
     }
 
     .orderListPage .repoHidTable{
-        display: none;
+        display: none!important;
     }
 
     .orderListPage .repoVisiTable{
