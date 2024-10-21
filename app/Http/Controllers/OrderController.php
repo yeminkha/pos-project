@@ -60,8 +60,14 @@ class OrderController extends Controller
             }
 
             order::create($data);
+            if (session()->has('tempOrderList')) {
+                // Now, remove 'tempOrderList' from session after order confirmation
+                session()->forget('tempOrderList');
+            }
         }
-        return back()->with('success', 'အော်ဒါတင်ပြီးပါပြီ');
+
+
+        return redirect()->route('homePage');
     }
 
 
@@ -69,7 +75,7 @@ class OrderController extends Controller
     {
         $groupList = Order::select('created_at', 'phone', 'user_name', 'status', 'orderCode', 'smile_gift')
             ->groupBy('created_at', 'phone', 'user_name', 'status', 'orderCode', 'smile_gift')
-            ->orderBy('created_at', 'desc')
+            ->orderBy('created_at', 'asc')
             ->paginate(5);
 
         $orderList = [];
@@ -123,7 +129,7 @@ class OrderController extends Controller
     public function orderDetail($key)
     {
         $vouncher = order::where('orderCode', $key)->get();
-return view('user.acc.vouncher', ['vouncher' => $vouncher]);
+        return view('user.acc.vouncher', ['vouncher' => $vouncher]);
     }
 
 

@@ -1725,7 +1725,13 @@ footer ul {
 .orderListPage .chart table th {
     width: 300px;
 }
-.orderListPage .continueOrderBtn {
+.orderListPage .continueOrderBtn{
+    width: 100%;
+    background-color: #523d06;
+    text-align: center;
+}
+.orderListPage .continueOrderBtn a {
+    display: block;
     width: 100%;
     text-align: center;
     color: var(--main-color);

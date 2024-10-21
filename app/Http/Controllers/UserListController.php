@@ -11,7 +11,7 @@ class UserListController extends Controller
     public function userListPage($role){
 
         $list = User::where('role',$role)->paginate(7);
-        return view('admin/userList/list')->with(['list' => $list]);
+        return view('admin/userList/list')->with(['list' => $list,'role' => $role]);
     }
 
     public function userDelete(Request $request){

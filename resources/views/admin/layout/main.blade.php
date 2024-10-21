@@ -10,7 +10,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li>
-                            <a href="{{route('categoryListPage')}}" class="text-decoration-none">
+                            <a href="{{ route('categoryListPage') }}" class="text-decoration-none">
                                 <i class="fa-solid fa-list"></i>Categories List</a>
                         </li>
                         <li>
@@ -30,7 +30,7 @@
                                 <i class="fa-solid fa-envelope"></i>Contact lists</a>
                         </li>
                         <li>
-                            <a href="{{route('orderListPage')}}" class="text-decoration-none">
+                            <a href="{{ route('orderListPage') }}" class="text-decoration-none">
                                 <i class="fa-solid fa-gifts"></i>Order lists</a>
                         </li>
 
@@ -101,12 +101,10 @@
                                         <div class="image">
                                             <a href="#">
                                                 @if (Auth::user()->image == null)
-                                                    <img
-                                                        src="{{ asset('storage/default_images/pf/default_pf.png')}}"
+                                                    <img src="{{ asset('storage/default_images/pf/default_pf.png') }}"
                                                         style="max-width: 100%; max-height: 100%; display: block;">
                                                 @else
-                                                    <img
-                                                        src="{{ asset('storage/profile_images/' . Auth::user()->image) }}"
+                                                    <img src="{{ asset('storage/profile_images/' . Auth::user()->image) }}"
                                                         style="max-width: 100%; max-height: 100%; display: block;">
                                                 @endif`
                                             </a>
@@ -120,12 +118,10 @@
                                                 <div class="image">
                                                     <a href="#">
                                                         @if (Auth::user()->image == null)
-                                                            <img
-                                                                src="{{ asset('storage/default_images/pf/default_pf.png')}}"
+                                                            <img src="{{ asset('storage/default_images/pf/default_pf.png') }}"
                                                                 style="max-width: 100%; max-height: 100%; display: block;">
                                                         @else
-                                                            <img
-                                                                src="{{ asset('storage/profile_images/' . Auth::user()->image) }}"
+                                                            <img src="{{ asset('storage/profile_images/' . Auth::user()->image) }}"
                                                                 style="max-width: 100%; max-height: 100%; display: block;">
                                                         @endif`
                                                     </a>
@@ -142,7 +138,7 @@
                                                 <div class="account-dropdown__item">
                                                     <a href="{{ route('accEdit') }}" class=" text-decoration-none">
                                                         <i class="fa-solid fa-user"></i></i>Account</a>
-                                                    <a href="{{route('passEdit')}}" class=" text-decoration-none">
+                                                    <a href="{{ route('passEdit') }}" class=" text-decoration-none">
                                                         <i class="fa-solid fa-key"></i>Password</a>
                                                 </div>
                                             </div>

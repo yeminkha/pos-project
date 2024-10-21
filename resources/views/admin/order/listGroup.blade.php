@@ -9,7 +9,7 @@
                     <div class="table-data__tool">
                         <div class="table-data__tool-left">
                             <div class="overview-wrap">
-                                <h2 class="title-1">Product List</h2>
+                                <h2 class="title-1">Order List</h2>
 
                             </div>
                         </div>

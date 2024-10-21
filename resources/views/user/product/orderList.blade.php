@@ -143,7 +143,9 @@
                         </tr>
                     </table>
 
-                    <div class="continueOrderBtn">အမှာတင်ဖို့ဆက်သွားမည်..</div>
+                    <div class="continueOrderBtn">
+                        <a href="{{ route('orderPage') }}">အမှာတင်ဖို့ဆက်သွားမည်..</a>
+                    </div>
                     <div class="warning">
                         ပို့ဆောင်ခမှာ အခြေခံတစ်အုပ် ၂၀၀၀ နှင့် *ထပ်တိုးတစ်အုပ် ၁၀၀
                         ကျပ်*နှုန်း ဖြစ်ပါသည်။ (ကားနှစ်ဆင့်ပို့ မြို့နယ်များအတွက်သာ
@@ -169,7 +171,7 @@
             $('.save').click(function() {
                 var items = [];
 
-                if ($('.orderListPage .repoVisiTable').css('display') === 'block')  {
+                if ($('.orderListPage .repoVisiTable').css('display') === 'block') {
                     $('.orderListPage .repoVisiTable .item').each(function(index) {
                         var image = $(this).find('.image').val();
                         var name = $(this).find('.name').val();
