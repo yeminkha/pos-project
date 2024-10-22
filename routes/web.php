@@ -59,6 +59,7 @@ Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard'
         Route::get('/mostSell', [allBookController::class, 'mostSell'])->name('mostSell');
         Route::get('/editorFav', [allBookController::class, 'editorFav'])->name('editorFav');
         Route::get('/suya', [allBookController::class, 'suya'])->name('suya');
+        Route::get('/rated_books/{key}', [allBookController::class, 'ratedBooksOnCati'])->name('ratedBooksOnCati');
         Route::get('/classic', [allBookController::class, 'classic'])->name('classic');
         Route::get('/dropSearchList/{key}', [allBookController::class, 'dropSearchList'])->name('dropSearchList');
         Route::get('/bookSearch/{key}', [allBookController::class, 'bookSearch'])->name('bookSearch');

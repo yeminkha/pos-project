@@ -28,12 +28,12 @@ class allbookController extends Controller
 
     public function mostSell()
     {
+
         $mostOrderName = order::select('product_name', DB::raw('count(*) as total'))
             ->groupBy('product_name')
             ->orderByDesc('total')
             ->get();
 
-        // dd($mostOrderName);
         $mostSoldProductIds = $mostOrderName->pluck('product_name');
         $bindings = [];
         $placeholders = [];
@@ -44,10 +44,15 @@ class allbookController extends Controller
         }
 
         $list = Product::whereIn('name', $mostSoldProductIds->toArray())
-            ->orderByRaw("FIELD(name, " . implode(',', $placeholders) . ")", $bindings)
+            ->leftJoin('reactions', 'products.id', '=', 'reactions.product_id')
+            ->select('products.*', DB::raw('AVG(reactions.rating_count) as average_rating')) // Select all product fields and average rating
+            ->groupBy('products.id') // Group by only the product ID, MySQL allows this in most cases
+            ->orderByRaw("FIELD(products.name, " . implode(',', $placeholders) . ")", $bindings) // Order by most sold products
             ->get();
 
-        // dd($mostSoldProduct);s
+        dd($list);
+
+
 
         return view('user/bookList', ['list' => $list, 'title' => 'အရောင်းရဆုံးစာအုပ်များ']);
     }
@@ -69,6 +74,17 @@ class allbookController extends Controller
     {
         $list = product::where('classic', 'True')->get();
         return view('user/bookList', ['list' => $list, 'title' => 'မြန်မာစာပေ ဂန္ထဝင်စာအုပ်များ']);
+    }
+
+    public function ratedBooksOnCati($key)
+    {
+        $list = Product::where('main_category_name', $key)
+            ->leftJoin('reactions', 'products.id', '=', 'reactions.product_id') // Join with reactions table
+            ->select('products.*', 'reactions.rating_count') // Select product fields and rating_count from reactions table
+            ->orderBy('reactions.rating_count', 'desc') // Order by rating_count from most to least
+            ->get();
+        $catiName = mainCategory::select('name')->where('id', $key)->get();
+        return view('user/bookList', ['list' => $list, 'title' => $catiName[0]->name.'စာအုပ်ကောင်းများ']);
     }
 
     public function dropSearchList($key)

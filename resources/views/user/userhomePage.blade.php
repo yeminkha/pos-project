@@ -20,7 +20,7 @@
                         <div class="line2"></div>
                     @endif
                 </div>
-                <div class="btn">အ‌ရောင်းရဆုံးစာအုပ်များကြည့်ရန်</div>
+                <a href="{{ route('mostSell') }}" class="btn">အ‌ရောင်းရဆုံးစာအုပ်များကြည့်ရန်</a>
             </div>
         @endif
         @if (count($newProducts))
@@ -47,7 +47,7 @@
                     <div class="line"></div>
                 </div>
                 <div class="btnContainer">
-                    <div class="btn">ပိုမိုရှာရန်</div>
+                    <a href="{{ route('newBooks') }}" class="btn">ပိုမိုရှာရန်</a>
                 </div>
             </div>
         @endif
@@ -81,7 +81,7 @@
         @endif
         @if (count($editorChoiceProducts))
             <div class="swiperContainer">
-                <div class="title">Top Rated Books</div>
+                <div class="title">အယ်ဒီတာအဖွဲ့ စိတ်ကြိုက်စာအုပ်များ</div>
                 <!-- Slider main container -->
                 <div class="swiperContainerInner">
                     <div class="swiper homeswiper">
@@ -104,7 +104,7 @@
                     <div class="line"></div>
                 </div>
                 <div class="btnContainer">
-                    <div class="btn">ပိုမိုရှာရန်</div>
+                    <a href="{{ route('editorFav') }}" class="btn">ပိုမိုရှာရန်</a>
                 </div>
             </div>
         @endif
@@ -119,6 +119,7 @@
                 @endphp
 
                 @if ($topRatedProductsForCategory->isNotEmpty())
+
                     <div class="swiperContainer">
                         <div class="title">{{ json_decode($mainCategoryName)->name }}စာအုပ်ကောင်းများ</div>
                         <!-- Slider main container -->
@@ -143,7 +144,7 @@
                             <div class="line"></div>
                         </div>
                         <div class="btnContainer">
-                            <div class="btn">ပိုမိုရှာရန်</div>
+                            <a href="{{route('ratedBooksOnCati',['key' => json_decode($mainCategoryName)->id])}}" class="btn">ပိုမိုရှာရန်</a>
                         </div>
                     </div>
                 @endif
@@ -158,7 +159,7 @@
                         </a>
                     @endforeach
                 </div>
-                <div class="btn">ပိုမိုရှာရန်</div>
+                <a href="{{ route('dropSearchList', ['key' => 'cati']) }}" class="btn">ပိုမိုရှာရန်</a>
             </div>
         @endif
 

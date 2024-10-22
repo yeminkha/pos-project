@@ -25,10 +25,10 @@
                             <a href="{{ route('userListPage', $role = 'user') }}" class="text-decoration-none">
                                 <i class="fa-solid fa-users"></i>Customer lists</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="" class="text-decoration-none">
                                 <i class="fa-solid fa-envelope"></i>Contact lists</a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="{{ route('orderListPage') }}" class="text-decoration-none">
                                 <i class="fa-solid fa-gifts"></i>Order lists</a>
