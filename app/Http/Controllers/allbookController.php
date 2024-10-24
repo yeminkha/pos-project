@@ -45,14 +45,10 @@ class allbookController extends Controller
 
         $list = Product::whereIn('name', $mostSoldProductIds->toArray())
             ->leftJoin('reactions', 'products.id', '=', 'reactions.product_id')
-            ->select('products.*', DB::raw('AVG(reactions.rating_count) as average_rating')) // Select all product fields and average rating
-            ->groupBy('products.id') // Group by only the product ID, MySQL allows this in most cases
+            ->select('products.id','products.name','products.image','products.arthur','products.price', DB::raw('AVG(reactions.rating_count) as average_rating')) // Select all product fields and average rating
+            ->groupBy('products.id','products.name','products.image','products.arthur','products.price') // Group by only the product ID, MySQL allows this in most cases
             ->orderByRaw("FIELD(products.name, " . implode(',', $placeholders) . ")", $bindings) // Order by most sold products
             ->get();
-
-        dd($list);
-
-
 
         return view('user/bookList', ['list' => $list, 'title' => 'အရောင်းရဆုံးစာအုပ်များ']);
     }
