@@ -75,7 +75,7 @@
                     <div class="line"></div>
                 </div>
                 <div class="btnContainer">
-                    <div class="btn">ပိုမိုရှာရန်</div>
+                    <a href="{{route('topRatedBooks')}}" class="btn">ပိုမိုရှာရန်</a>
                 </div>
             </div>
         @endif
