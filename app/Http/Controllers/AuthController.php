@@ -107,6 +107,15 @@ class AuthController extends Controller
         }
     }
 
+    public function acc()
+    {
+        if (Auth::check() && Auth::user()->role != null) {
+            return redirect()->route('accMain');
+        } else {
+            return redirect()->route('registerPage');
+        }
+    }
+
     private function implodeWithBindings($array)
     {
         return implode(',', array_fill(0, count($array), '?'));

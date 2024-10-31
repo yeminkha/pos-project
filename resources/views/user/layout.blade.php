@@ -357,13 +357,13 @@
                 <li><a href="">စာအုပ်အားလုံး</a></li>
                 <li><a href="{{ route('dropSearchList', ['key' => 'cati']) }}">စာအုပ်အမျိုးအစား</a></li>
                 <li><a href="{{ route('dropSearchList', ['key' => 'arthur']) }}">စာရေးဆရာများ</a></li>
-                <li><a href="">မိမိအကောင့်</a></li>
-                <li><a href="">ပင်မစာမျက်နှာ</a></li>
+                <li><a href="{{route('acc')}}">မိမိအကောင့်</a></li>
+                <li><a href="{{ route('homePage') }}">ပင်မစာမျက်နှာ</a></li>
             </ul>
         </div>
         <div class="service">
             <ul>
-                <li><a href="">ဝန်ဆောင်မှုများ</a></li>
+                <li><a href="{{ route('servicePage') }}">ဝန်ဆောင်မှုများ</a></li>
                 <li><a href="{{ url('/servicePage#local_deli') }}">ပြည်တွင်းပို့ဆောင်မှု</a></li>
                 <li><a href="{{ url('/servicePage#inter_deli') }}">ပြည်ပပို့ဆောင်မှု</a></li>
                 <li><a href="{{ url('/servicePage#payment') }}">ငွေပေးချေမှု</a></li>

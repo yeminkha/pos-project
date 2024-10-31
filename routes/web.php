@@ -34,6 +34,7 @@ Route::get('homePage', [AuthController::class, 'homePage'])->name('homePage');
 Route::get('loginPage', [AuthController::class, 'loginPage'])->name('loginPage');
 Route::get('registerPage', [AuthController::class, 'registerPage'])->name('registerPage');
 Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
+Route::get('/acc',[AuthController::class,'acc'])->name('acc');
 
 
 
