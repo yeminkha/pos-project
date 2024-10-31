@@ -17,6 +17,8 @@ class OrderController extends Controller
     }
     public function order(Request $request)
     {
+        // dd($request->all());
+
         $valiRule = $this->valiRule($request->all());
 
         $validator = Validator::make($request->all(), $valiRule);
@@ -99,7 +101,7 @@ class OrderController extends Controller
     {
         $orderLists = order::where('orderCode', $key)->get();
         $products = product::get();
-        // dd($orderLists);
+
         return view('admin.order.list', ['orderLists' => $orderLists, 'products' => $products]);
     }
 

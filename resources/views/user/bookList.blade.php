@@ -64,7 +64,7 @@
                 var productImage = $(this).closest('.box').find('input[name="image"]').val();
                 var priceText = $(this).closest('.box').find('.price').text();
                 var price = parseInt(priceText.replace(/[^0-9]/g, ''));
-                var name = $(this).closest('.box').find('.titleLink').text();
+                var name = $(this).closest('.box').find('.category').text();
                 console.log(productId, productImage, name, price);
                 $.get('/getCart', {
                         quantity: 1,
