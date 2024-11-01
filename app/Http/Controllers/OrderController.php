@@ -97,6 +97,11 @@ class OrderController extends Controller
         return view('admin.order.listGroup', ['groupList' => $groupList, 'orderList' => $orderList]);
     }
 
+    public function orderDelete(Request $request){
+                logger($request->orderCode);
+        order::where('orderCode', $request->orderCode)->delete();
+    }
+
     public function seeOrderPage(Request $request, $key)
     {
         $orderLists = order::where('orderCode', $key)->get();

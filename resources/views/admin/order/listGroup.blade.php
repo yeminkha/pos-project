@@ -45,6 +45,7 @@
                                 <tbody>
                                     @foreach ($groupList as $p)
                                         <tr class="tr-shadow">
+                                            <input type="hidden" name="orderCode" value="{{ $p->orderCode }}" class="orderCode">
                                             <td>{{ $p->user_name }}</td>
                                             <td>{{ $p->phone }}</td>
                                             @php
@@ -99,8 +100,6 @@
                                                     <i class="fa-solid fa-gifts" style="color: #F8BA0F"></i>
                                                 @endif
                                             </td> --}}
-
-
                                             <td
                                                 @switch($p->status)
                                                     @case('0')
@@ -188,17 +187,18 @@
     </div>
     <!-- END MAIN CONTENT-->
 @endsection
-{{-- @section('jquery')
+@section('jquery')
     <script>
         $(document).ready(function() {
             $('.delete').click(function() {
                 parent = $(this).parents('tr');
-                $id = parent.find('.id').val();
+                $orderCode = parent.find('.orderCode').val();
+                // alert($orderCode);
                 $.ajax({
                     type: 'get',
-                    url: '/product/delete',
+                    url: '/order/delete',
                     data: {
-                        'id': $id
+                        'orderCode': $orderCode
                     },
                     dataType: 'json'
                 })
@@ -206,4 +206,4 @@
             })
         });
     </script>
-@endsection --}}
+@endsection

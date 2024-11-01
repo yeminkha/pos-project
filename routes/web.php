@@ -109,6 +109,7 @@ Route::get('/acc',[AuthController::class,'acc'])->name('acc');
         Route::get('seeOrderPage/{key}', [OrderController::class, 'seeOrderPage'])->name('seeOrderPage');
         Route::get('/order/status/update', [OrderController::class, 'orderStatusChange']);
         Route::get('orderedBookPage', [OrderController::class, 'orderedBookPage']);
+        Route::get('/order/delete', [OrderController::class, 'orderDelete']);
 
         // admin list
         Route::get('user/list/page/{role}', [UserListController::class, 'userListPage'])->name('userListPage');
