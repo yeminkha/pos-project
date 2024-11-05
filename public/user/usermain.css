@@ -596,10 +596,10 @@ footer ul {
     justify-content: space-between;
     flex-wrap: wrap;
 }
-.readingGuide .container .add{
+.readingGuide .container .add {
     display: none;
     width: 100%;
-    margin:10px 0;
+    margin: 10px 0;
 }
 .readingGuide .container .left {
     border: 1px solid #9c7200;
@@ -629,7 +629,7 @@ footer ul {
 }
 .readingGuide .container .left .item .item-right {
     width: 60%;
-    padding:0 20px;
+    padding: 0 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -654,8 +654,8 @@ footer ul {
     text-align: justify;
     margin-bottom: 20px;
 }
-.readingGuide .container .left .item .item-right .bookBtn ,
-.readingGuide .container .left .item .add a{
+.readingGuide .container .left .item .item-right .bookBtn,
+.readingGuide .container .left .item .add a {
     background-color: var(--theme-color);
     border-radius: 20px;
     width: 200px;
@@ -717,7 +717,6 @@ footer ul {
     justify-content: center;
     padding: 30px 0;
 }
-
 
 .haveBook .box {
     margin: 0 18px 30px;
@@ -1653,7 +1652,7 @@ footer ul {
     display: block;
     margin: 0 auto;
 }
-.orderListPage .imgCon img{
+.orderListPage .imgCon img {
     width: 80%;
     display: block;
     margin: 0 auto;
@@ -1725,7 +1724,7 @@ footer ul {
 .orderListPage .chart table th {
     width: 300px;
 }
-.orderListPage .continueOrderBtn{
+.orderListPage .continueOrderBtn {
     width: 100%;
     background-color: #523d06;
     text-align: center;
@@ -1923,11 +1922,11 @@ footer ul {
     padding: 10px;
 }
 .gift-card .right {
-    min-width:  100px;
+    min-width: 100px;
     padding: 10px;
     display: flex;
 }
-.gift-card  span {
+.gift-card span {
     font-size: 14px;
     color: var(--side-color);
 }
@@ -2021,25 +2020,41 @@ footer ul {
 }
 
 /* home */
-.home .imgContainer img {
-    width: 800px;
+.home .imgContainer{
+    max-width: 800px;
+    min-width: 500px;
     display: block;
     margin: 20px auto;
 }
+
+.home .imgContainer img {
+    width: 100%;
+}
+
+.home {
+    width: 100%;
+    text-align: center;
+}
+
+.home .bookContainerOuter {
+    width: 100%;
+}
+
 .home .bookContainer {
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
-    margin: 40px auto;
+    width: 100%;
+    margin: 0 auto;
     position: relative;
 }
 .home .bookContainer a {
     display: block;
-    width: 20%;
+    max-width: 20%;
+    min-width: 100px;
     margin-bottom: 60px;
 }
 .home .bookContainer a img {
-    width: 280px;
+    max-width: 100px;
     mix-blend-mode: color-burn;
     margin-left: -30px;
     cursor: pointer;
@@ -2052,7 +2067,6 @@ footer ul {
     z-index: 1;
     box-shadow: 0px 20px 30px rgb(155, 155, 155);
     top: 260px;
-    left: 0;
     width: 100%;
     height: 30px;
     border-radius: 30px;
@@ -2207,8 +2221,7 @@ footer ul {
         width: 100%;
     }
 }
-@media (max-width:870px) {
-
+@media (max-width: 870px) {
     .readingGuide .container .right,
     .readingGuide .container .left {
         width: 90%;
@@ -2230,7 +2243,7 @@ footer ul {
     .lrContainer .left {
         width: 90%;
     }
-    .lrContainer .left .oneImage{
+    .lrContainer .left .oneImage {
         justify-content: center !important;
     }
     .lrContainer .right {
@@ -2259,11 +2272,13 @@ footer ul {
     .moreBooks .innerContainer {
         justify-content: center;
     }
-    .readingGuide{
+    .readingGuide {
         width: 100%;
     }
-    .readingGuide .container .right, .readingGuide .container .left,
-    .readingGuide .container .right, .readingGuide .container .right{
+    .readingGuide .container .right,
+    .readingGuide .container .left,
+    .readingGuide .container .right,
+    .readingGuide .container .right {
         width: 100%;
     }
     .readingGuide .container .left .item .item-left img {
@@ -2272,14 +2287,13 @@ footer ul {
         transform: translateX(0);
     }
 
-    .orderListPage .repoHidTable{
-        display: none!important;
+    .orderListPage .repoHidTable {
+        display: none !important;
     }
 
-    .orderListPage .repoVisiTable{
-        display: block!important;
+    .orderListPage .repoVisiTable {
+        display: block !important;
     }
-
 }
 
 @media (max-width: 500px) {
@@ -2334,9 +2348,9 @@ footer ul {
         right: 10px;
     }
     .getInfo {
-        padding:  20px;
+        padding: 20px;
     }
-    .gift-card{
+    .gift-card {
         width: 95%;
     }
 }
