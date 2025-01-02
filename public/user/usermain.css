@@ -2043,7 +2043,7 @@ footer ul {
 .home .bookContainer {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
     position: relative;
 }
@@ -2054,7 +2054,7 @@ footer ul {
     margin-bottom: 60px;
 }
 .home .bookContainer a img {
-    max-width: 100px;
+    width: 100%;
     mix-blend-mode: color-burn;
     margin-left: -30px;
     cursor: pointer;
@@ -2066,13 +2066,13 @@ footer ul {
     position: absolute;
     z-index: 1;
     box-shadow: 0px 20px 30px rgb(155, 155, 155);
-    top: 260px;
+    top: 180px;
     width: 100%;
     height: 30px;
     border-radius: 30px;
 }
 .home .bookContainer .line2 {
-    top: 610px;
+    top: 470px;
 }
 .home .bookContainerOuter .btn {
     background-color: var(--theme-color);
@@ -2352,5 +2352,16 @@ footer ul {
     }
     .gift-card {
         width: 95%;
+    }
+    .home .imgContainer{
+        background-color: black;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .home .imgContainer img {
+        display: block;
+        width: 200px;
+        background-color: #523d06;
     }
 }
