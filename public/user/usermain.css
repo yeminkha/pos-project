@@ -2354,14 +2354,8 @@ footer ul {
         width: 95%;
     }
     .home .imgContainer{
-        background-color: black;
         max-width: 100%;
-        display: flex;
-        justify-content: center;
+        min-width: 100px;
     }
-    .home .imgContainer img {
-        display: block;
-        width: 200px;
-        background-color: #523d06;
-    }
+
 }
