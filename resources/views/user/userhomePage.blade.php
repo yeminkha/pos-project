@@ -10,14 +10,27 @@
         @if (count($mostSoldProducts))
             <div class="bookContainerOuter">
                 <div class="bookContainer">
-                    @foreach ($mostSoldProducts as $item)
-                        <a href="{{ route('bookPage', $item->id) }}">
-                            <img src="{{ asset('/storage/books/' . $item->image) }}" alt="{{ $item->name }}">
-                        </a>
-                    @endforeach
-                    <div class="line1"></div>
+                    <div class="rows">
+                        @for ($i = 0; $i < 5; $i++)
+                            <a href="{{ route('bookPage', $mostSoldProducts[$i]->id) }}">
+                                <img src="{{ asset('/storage/books/' . $mostSoldProducts[$i]->image) }}"
+                                    alt="{{ $mostSoldProducts[$i]->name }}">
+                            </a>
+                            <div class="line1"></div>
+                        @endfor
+                        {{-- @foreach ($mostSoldProducts as $item)
+                        @endforeach --}}
+                    </div>
                     @if (count($newProducts) > 5)
-                        <div class="line2"></div>
+                        <div class="rows">
+                            @for ($i = 5; $i < count($mostSoldProducts); $i++)
+                                <a href="{{ route('bookPage', $mostSoldProducts[$i]->id) }}">
+                                    <img src="{{ asset('/storage/books/' . $mostSoldProducts[$i]->image) }}"
+                                        alt="{{ $mostSoldProducts[$i]->name }}">
+                                </a>
+                                <div class="line2"></div>
+                            @endfor
+                        </div>
                     @endif
                 </div>
                 <a href="{{ route('mostSell') }}" class="btn">အ‌ရောင်းရဆုံးစာအုပ်များကြည့်ရန်</a>
@@ -33,7 +46,7 @@
                         <div class="swiper-wrapper">
                             <!-- Slides -->
                             @foreach ($newProducts as $item)
-                                <div class="swiper-slide" >
+                                <div class="swiper-slide">
                                     <a href="{{ route('bookPage', $item->id) }}">
                                         <img src="{{ asset('/storage/books/' . $item->image) }}" alt="{{ $item->name }}">
                                     </a>
@@ -63,7 +76,8 @@
                             @foreach ($topRatedProducts as $item)
                                 <div class="swiper-slide">
                                     <a href="{{ route('bookPage', $item->id) }}">
-                                        <img src="{{ asset('/storage/books/' . $item->image) }}" alt="{{ $item->name }}">
+                                        <img src="{{ asset('/storage/books/' . $item->image) }}"
+                                            alt="{{ $item->name }}">
                                     </a>
                                 </div>
                             @endforeach
@@ -75,7 +89,7 @@
                     <div class="line"></div>
                 </div>
                 <div class="btnContainer">
-                    <a href="{{route('topRatedBooks')}}" class="btn">ပိုမိုရှာရန်</a>
+                    <a href="{{ route('topRatedBooks') }}" class="btn">ပိုမိုရှာရန်</a>
                 </div>
             </div>
         @endif
@@ -119,7 +133,6 @@
                 @endphp
 
                 @if ($topRatedProductsForCategory->isNotEmpty())
-
                     <div class="swiperContainer">
                         <div class="title">{{ json_decode($mainCategoryName)->name }}စာအုပ်ကောင်းများ</div>
                         <!-- Slider main container -->
@@ -144,7 +157,8 @@
                             <div class="line"></div>
                         </div>
                         <div class="btnContainer">
-                            <a href="{{route('ratedBooksOnCati',['key' => json_decode($mainCategoryName)->id])}}" class="btn">ပိုမိုရှာရန်</a>
+                            <a href="{{ route('ratedBooksOnCati', ['key' => json_decode($mainCategoryName)->id]) }}"
+                                class="btn">ပိုမိုရှာရန်</a>
                         </div>
                     </div>
                 @endif

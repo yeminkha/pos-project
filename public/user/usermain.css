@@ -2038,16 +2038,21 @@ footer ul {
 
 .home .bookContainerOuter {
     width: 100%;
+    position: relative;
 }
 
 .home .bookContainer {
+    width: 80%;
+    margin: 0 auto;
+}
+.home .bookContainer .rows{
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     position: relative;
 }
-.home .bookContainer a {
+.home .bookContainer  a {
     display: block;
     max-width: 20%;
     min-width: 100px;
@@ -2071,9 +2076,7 @@ footer ul {
     height: 30px;
     border-radius: 30px;
 }
-.home .bookContainer .line2 {
-    top: 470px;
-}
+
 .home .bookContainerOuter .btn {
     background-color: var(--theme-color);
     color: var(--main-color);
