@@ -16,21 +16,19 @@
                                 <img src="{{ asset('/storage/books/' . $mostSoldProducts[$i]->image) }}"
                                     alt="{{ $mostSoldProducts[$i]->name }}">
                             </a>
-                            <div class="line1"></div>
                         @endfor
-                        {{-- @foreach ($mostSoldProducts as $item)
-                        @endforeach --}}
+                        <div class="line1"></div>
                     </div>
                     @if (count($newProducts) > 5)
-                        <div class="rows">
-                            @for ($i = 5; $i < count($mostSoldProducts); $i++)
-                                <a href="{{ route('bookPage', $mostSoldProducts[$i]->id) }}">
-                                    <img src="{{ asset('/storage/books/' . $mostSoldProducts[$i]->image) }}"
-                                        alt="{{ $mostSoldProducts[$i]->name }}">
-                                </a>
-                                <div class="line2"></div>
-                            @endfor
-                        </div>
+                    <div class="rows" >
+                        @for ($i = 5; $i < count($mostSoldProducts); $i++)
+                            <a href="{{ route('bookPage', $mostSoldProducts[$i]->id) }}">
+                                <img src="{{ asset('/storage/books/' . $mostSoldProducts[$i]->image) }}"
+                                    alt="{{ $mostSoldProducts[$i]->name }}">
+                            </a>
+                        @endfor
+                        <div class="line2"></div>
+                    </div>
                     @endif
                 </div>
                 <a href="{{ route('mostSell') }}" class="btn">အ‌ရောင်းရဆုံးစာအုပ်များကြည့်ရန်</a>

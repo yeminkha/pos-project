@@ -808,10 +808,10 @@ footer ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 50px;
+    padding:50px 0 50px 0;
 }
 .searchPage .title {
-    font-size: 30px;
+    font-size: 21px;
     color: var(--side-color);
     text-align: center;
     width: 100%;
@@ -831,12 +831,12 @@ footer ul {
 }
 .dropdownContainer {
     margin-bottom: 30px;
-    width: 100%;
+    width: 650px;
 }
 .dropdowntitlecontainer {
     padding: 5px 10px 0px;
     margin: 0 auto;
-    width: 850px;
+    width: 100%;
     background-color: var(--theme-color);
     font-size: 20px;
     border: 1px solid black;
@@ -875,7 +875,7 @@ footer ul {
 .dorpdownContentBox {
     visibility: hidden;
     margin: 0 auto;
-    width: 850px;
+    width: 100%;
     border: 1px solid black;
     border-top: none;
     height: 0px;
@@ -2051,11 +2051,12 @@ footer ul {
     width: 100%;
     margin: 0 auto;
     position: relative;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 .home .bookContainer a {
     display: block;
     width: 20%;
+    overflow: hidden;
 }
 .home .bookContainer a img {
     width: 130%;
