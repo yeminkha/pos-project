@@ -1,17 +1,20 @@
 @extends('user/layout')
 @section('content')
     <section class="home">
+        {{-- @php
+            dd($mostSoldProducts)
+        @endphp --}}
         <div class="imgContainer">
             @if (count($mostSoldProducts) > 0)
                 <img src="https://www.pannsattlann.com/wp-content/uploads/2023/05/Bestseller-Header-May-4.png"
                     alt="" />
             @endif
         </div>
-        @if (count($mostSoldProducts))
+        @if (!empty($mostSoldProducts) && $mostSoldProducts->count())
             <div class="bookContainerOuter">
                 <div class="bookContainer">
                     <div class="rows">
-                        @for ($i = 0; $i < 5; $i++)
+                        @for ($i = 0;$i < count($mostSoldProducts); $i++)
                             <a href="{{ route('bookPage', $mostSoldProducts[$i]->id) }}">
                                 <img src="{{ asset('/storage/books/' . $mostSoldProducts[$i]->image) }}"
                                     alt="{{ $mostSoldProducts[$i]->name }}">

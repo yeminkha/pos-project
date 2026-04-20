@@ -25,7 +25,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="https://www.pannsattlann.com/wp-content/uploads/2022/01/cropped-cropped-cropped-Logo-2-10.png"
+            <img src="https://www.pannsattlann.com/wp-content/uploads/2025/11/cropped-cropped-Logo-2-10.png"
                 alt="" />
         </div>
         <div class="inputGp">
@@ -276,80 +276,81 @@
 
     </header>
 
-    <div class="busket">
-        <i class="fa-solid fa-basket-shopping"></i>
-        <div class="number">
-            @if (session()->has('tempOrderList'))
-                {{ count(session('tempOrderList')) }}
-            @else
-                0
-            @endif
+    <body>
+        <div class="busket">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <div class="number">
+                @if (session()->has('tempOrderList'))
+                    {{ count(session('tempOrderList')) }}
+                @else
+                    0
+                @endif
+            </div>
         </div>
-    </div>
-    <div class="slider">
-        <div class="sliderHeader">
-            <div class="logoContainer">
-                <div class="logo">
-                    <i class="bx bx-shopping-bag"></i>
+        <div class="slider">
+            <div class="sliderHeader">
+                <div class="logoContainer">
+                    <div class="logo">
+                        <i class="bx bx-shopping-bag"></i>
+                    </div>
+                    <div class="number">0</div>
                 </div>
-                <div class="number">0</div>
+                <div class="title">လူကြီးမင်း၏စျေးခြင်း</div>
+                <div class="closeBtn">
+                    <i class="bx bx-x"></i>
+                </div>
             </div>
-            <div class="title">လူကြီးမင်း၏စျေးခြင်း</div>
-            <div class="closeBtn">
-                <i class="bx bx-x"></i>
-            </div>
-        </div>
 
-        <div class="sliderBody">
-            @if (session()->has('tempOrderList'))
-                @php
-                    $tempOrderList = session('tempOrderList');
-                @endphp
-                @foreach ($tempOrderList as $key => $item)
-                    <div class="item">
-                        <img src="{{ asset('storage/books/' . $item['image']) }}" alt="" />
-                        <div class="priceTag">
-                            <div class="desc">
-                                <div class="title">{{ $item['name'] }}</div>
-                                <div class="price">
-                                    <div class="amount">{{ $item['quantity'] }} X {{ $item['price'] }} (ကျပ်)</div>
-                                    <div class="total">= {{ $item['total'] }} (ကျပ်)</div>
+            <div class="sliderBody">
+                @if (session()->has('tempOrderList'))
+                    @php
+                        $tempOrderList = session('tempOrderList');
+                    @endphp
+                    @foreach ($tempOrderList as $key => $item)
+                        <div class="item">
+                            <img src="{{ asset('storage/books/' . $item['image']) }}" alt="" />
+                            <div class="priceTag">
+                                <div class="desc">
+                                    <div class="title">{{ $item['name'] }}</div>
+                                    <div class="price">
+                                        <div class="amount">{{ $item['quantity'] }} X {{ $item['price'] }} (ကျပ်)
+                                        </div>
+                                        <div class="total">= {{ (int) $item['quantity'] * (int) $item['price'] }}
+                                            (ကျပ်)</div>
+                                    </div>
+                                </div>
+
+                                <div class="delete ">
+                                    <input type="hidden" class="voucherCode" value="{{ $item['voucherCode'] }}">
+                                    <i class="bx bx-trash-alt"></i>
                                 </div>
                             </div>
-
-                            <div class="delete ">
-                                <input type="hidden" class="voucherCode" value="{{ $item['voucherCode'] }}">
-                                <i class="bx bx-trash-alt"></i>
-                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
 
-            @endif
+                @endif
+            </div>
+
+            <div class="sliderFooter">
+                <div class="subTotal">Subtotal: {{ $totalPrice }} (ကျပ်)</div>
+
+                <a style='display:block;'
+                    @if (session()->has('tempOrderList') && count(session('tempOrderList')) > 0) href="{{ route('tempOrderListPage') }}" @endif
+                    class="seeList">စာရင်းကြည့်မယ်</a>
+                <a style='display:block;' class="order"
+                    @if (session()->has('tempOrderList') && count(session('tempOrderList')) > 0) href="{{ route('orderPage') }}" @endif>အမှာတင်မယ်</a>
+            </div>
         </div>
-
-        <div class="sliderFooter">
-            <div class="subTotal">Subtotal: {{ $totalPrice }} (ကျပ်)</div>
-
-            <a style='display:block;'
-                @if (session()->has('tempOrderList') && count(session('tempOrderList')) > 0) href="{{ route('tempOrderListPage') }}" @endif
-                class="seeList">စာရင်းကြည့်မယ်</a>
-            <a style='display:block;' class="order"
-                @if (session()->has('tempOrderList') && count(session('tempOrderList')) > 0) href="{{ route('orderPage') }}" @endif>အမှာတင်မယ်</a>
-        </div>
-
-
-    </div>
-    </div>
-    @yield('content')
-    @yield('bookListPage')
-    @yield('bookPage')
-    @yield('servicePage')
-    @yield('dropSearch')
-    @yield('readingGuide')
-    @yield('reviewPage')
-    @yield('accountMainPage')
-    @yield('noBook')
+        @yield('content')
+        @yield('bookListPage')
+        @yield('bookPage')
+        @yield('servicePage')
+        @yield('dropSearch')
+        @yield('readingGuide')
+        @yield('reviewPage')
+        @yield('accountMainPage')
+        @yield('noBook')
+    </body>
     <footer>
         <div class="pageLinks">
             <ul>
@@ -357,7 +358,7 @@
                 <li><a href="">စာအုပ်အားလုံး</a></li>
                 <li><a href="{{ route('dropSearchList', ['key' => 'cati']) }}">စာအုပ်အမျိုးအစား</a></li>
                 <li><a href="{{ route('dropSearchList', ['key' => 'arthur']) }}">စာရေးဆရာများ</a></li>
-                <li><a href="{{route('acc')}}">မိမိအကောင့်</a></li>
+                <li><a href="{{ route('acc') }}">မိမိအကောင့်</a></li>
                 <li><a href="{{ route('homePage') }}">ပင်မစာမျက်နှာ</a></li>
             </ul>
         </div>

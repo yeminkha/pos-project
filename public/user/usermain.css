@@ -1482,9 +1482,11 @@ footer ul {
     padding: 5px 10px;
 }
 .slider {
+    display: flex;
     width: 0;
     height: 100vh;
     position: fixed;
+    flex-direction: column;
     z-index: 9999;
     right: 0;
     top: 0;
@@ -1497,6 +1499,7 @@ footer ul {
     width: 350px;
 }
 .slider .sliderHeader {
+    flex-shrink: 0;
     padding: 20px 0;
     display: flex;
     width: 400px;
@@ -1536,6 +1539,7 @@ footer ul {
     overflow: scroll;
     overflow-x: hidden;
     overflow-y: hidden;
+    flex:1;
     background-color: var(--main-color);
 }
 .slider .sliderBody:hover {
@@ -1560,6 +1564,7 @@ footer ul {
 }
 .sliderFooter {
     box-shadow: 0px 0px 30px rgb(97, 97, 97);
+    flex-shrink: 0;
 }
 .sliderFooter .subTotal {
     text-align: center;
@@ -1572,10 +1577,10 @@ footer ul {
     width: 350px;
     text-align: center;
 }
-.sliderFooter .seeList:hover,
+/* .sliderFooter .seeList:hover,
 .sliderFooter .order:hover {
     background-color: var(--theme-color);
-}
+} */
 .busket {
     width: 60px;
     height: 60px;

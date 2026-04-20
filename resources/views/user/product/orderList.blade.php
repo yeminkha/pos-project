@@ -32,7 +32,7 @@
                         </td>
                         <td>{{ $item['price'] }} (ကျပ်)</td>
                         <td class="ipCon" title="အရေအတွက်">
-                            <input type="number" min="0" value="{{ $item['quantity'] }}" />
+                            <input type="number" min="1" value="{{ $item['quantity'] }}" />
                         </td>
                         <td class='total'>{{ $item['total'] }} (ကျပ်)</td>
                     </tr>

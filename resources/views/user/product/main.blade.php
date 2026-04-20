@@ -298,29 +298,33 @@
                 // Retrieve the total value from the input field
                 var totalAmount = $('.total').val();
                 totalAmount = parseInt(totalAmount);
-                totalPrice = productPrice * totalAmount;
+                if (totalAmount > 0) {
+                    totalPrice = productPrice * totalAmount;
 
-                // Send a GET request to the server
-                $.get('/getCart', {
-                        quantity: totalAmount,
-                        productId: productId,
-                        total: totalPrice,
-                        image: productImage,
-                        name: productName,
-                        price: productPrice
-                    })
-                    .done(function(response) {
-                        // Handle success response here
-                        console.log('Cart updated successfully:', response);
-                        // Reload the page after updating the cart
-                        // Reload the top-level window (the entire website)
-                        window.location.reload();
+                    // Send a GET request to the server
+                    $.get('/getCart', {
+                            quantity: totalAmount,
+                            productId: productId,
+                            total: totalPrice,
+                            image: productImage,
+                            name: productName,
+                            price: productPrice
+                        })
+                        .done(function(response) {
+                            // Handle success response here
+                            console.log('Cart updated successfully:', response);
+                            // Reload the page after updating the cart
+                            // Reload the top-level window (the entire website)
+                            window.location.reload();
 
-                    })
-                    .fail(function(xhr, status, error) {
-                        // Handle failure response here
-                        console.error('Error updating cart:', error);
-                    });
+                        })
+                        .fail(function(xhr, status, error) {
+                            // Handle failure response here
+                            console.error('Error updating cart:', error);
+                        });
+                }
+
+
             });
         })
     </script>
