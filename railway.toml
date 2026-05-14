@@ -1,0 +1,4 @@
+[deploy]
+
+[deploy.variables]
+RAILPACK_BUILD_APT_PACKAGES = "bison autoconf re2c"
