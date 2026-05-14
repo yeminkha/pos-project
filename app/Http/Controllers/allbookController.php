@@ -223,4 +223,8 @@ class allbookController extends Controller
             return redirect('/bookPage/' . $bookId);
         }
     }
+
+    public function nobook(){
+        return view('/user/noBook');
+    }
 }
