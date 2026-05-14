@@ -92,7 +92,7 @@ class AuthController extends Controller
                 'arthurList' => $arthurList
             ]);
         }else{
-            return view('user/nobook');
+            return redirect('nobook');
         }
     }
 

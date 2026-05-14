@@ -74,7 +74,7 @@ Route::get('/acc',[AuthController::class,'acc'])->name('acc');
         Route::get('/readingGuide', [ReadinGuideController::class, 'readingGuide'])->name('readingGuide');
         Route::get('readingGuideBookPage/{key}', [ReadinGuideController::class, 'readingGuideBookPage'])->name('readingGuideBookPage');
         Route::post('/book', [allbookController::class, 'book'])->name('book');
-        Route::post('user/nobook', [allbookController::class, 'nobook'])->name('nobook');
+        Route::get('/nobook', [allbookController::class, 'nobook'])->name('nobook');
         Route::get('orderDetail/{key}', [OrderController::class, 'orderDetail'])->name('orderDetail');
 
         Route::get('/accMain', [AccController::class, 'mainPage'])->name('accMain');
