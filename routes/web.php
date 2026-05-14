@@ -29,7 +29,8 @@ use App\Http\Controllers\TempOrderListController;
 |
 */
 
-Route::get('/', [AuthController::class, 'dashboard'])->name('dashboard');
+// Route::get('/', [AuthController::class, 'dashboard'])->name('dashboard');
+Route::get('/', [AuthController::class, 'dashboard']);
 Route::get('homePage', [AuthController::class, 'homePage'])->name('homePage');
 Route::get('loginPage', [AuthController::class, 'loginPage'])->name('loginPage');
 Route::get('registerPage', [AuthController::class, 'registerPage'])->name('registerPage');
