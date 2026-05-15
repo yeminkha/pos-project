@@ -22,15 +22,16 @@
                                                 style="border-radius: 50%; width: 200px; height: 200px; overflow: hidden; margin: 20px auto; background: white; display: flex; align-items: center; justify-content: center;">
 
                                                 @if (Auth::user()->image == null)
-                                                    {{-- <img id="imagePreview"
+                                                    <img id="imagePreview"
                                                         src="{{ asset('storage/default_images/pf/default_pf.png') }}"
+                                                        style="max-width: 100%; max-height: 100%; display: block;">
+
+                                                @else
+                                                    {{-- <img id="imagePreview"
+                                                        src="{{ asset('storage/profile_images/' . Auth::user()->image) }}"
                                                         style="max-width: 100%; max-height: 100%; display: block;"> --}}
                                                         <img id="imagePreview"
                                                         src="{{ Auth::user()->image }}"
-                                                        style="max-width: 100%; max-height: 100%; display: block;">
-                                                @else
-                                                    <img id="imagePreview"
-                                                        src="{{ asset('storage/profile_images/' . Auth::user()->image) }}"
                                                         style="max-width: 100%; max-height: 100%; display: block;">
                                                 @endif
                                             </div>
