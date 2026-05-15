@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
 
-        // URL::forceScheme('https');
+        URL::forceScheme('https');
 
         // Define a view composer for the layout
         View::composer('user.layout', function ($view) {
