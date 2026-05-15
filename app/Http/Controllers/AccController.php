@@ -36,6 +36,29 @@ class AccController extends Controller
         ];
 
 
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $oldImage = User::where('id', Auth::user()->id)->value('image');
+
+        //     // Check if the old image exists before attempting to delete it
+        //     if ($oldImage && Storage::exists('public/profile_images/' . $oldImage)) {
+        //         // Delete old image
+        //         Storage::delete('public/profile_images/' . $oldImage);
+        //     }
+
+        //     // Get new image name with a random number appended
+        //     $newImage = $this->generateRandomImageName($image);
+
+        //     try {
+        //         // Save new image to storage
+        //         $path = $image->storeAs('public/profile_images', $newImage);
+        //         Log::info('Image stored at: ' . $path);
+
+        //         $data['image'] = $newImage;
+        //     } catch (\Exception $e) {
+        //         Log::error('Failed to store image: ' . $e->getMessage());
+        //     }
+        // }
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $oldImage = User::where('id', Auth::user()->id)->value('image');
@@ -59,7 +82,6 @@ class AccController extends Controller
                 Log::error('Failed to store image: ' . $e->getMessage());
             }
         }
-
 
 
         User::where('id', Auth::user()->id)->update($data);
