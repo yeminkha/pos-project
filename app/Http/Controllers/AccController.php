@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class AccController extends Controller
 {
@@ -59,29 +60,32 @@ class AccController extends Controller
         //         Log::error('Failed to store image: ' . $e->getMessage());
         //     }
         // }
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $oldImage = User::where('id', Auth::user()->id)->value('image');
+if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $user = Auth::user();
 
-            // Check if the old image exists before attempting to delete it
-            if ($oldImage && Storage::exists('public/profile_images/' . $oldImage)) {
-                // Delete old image
-                Storage::delete('public/profile_images/' . $oldImage);
+        try {
+            // ၁။ ပုံဟောင်းရှိလျှင် Cloudinary ပေါ်ကနေ အရင်ဖျက်မယ်
+            // (DB ထဲမှာ Cloudinary URL အပြည့်အစုံ ရှိနေရင် Cloudinary က သူ့ဘာသာ public_id ကို ခွဲခြားသိပါတယ်)
+            if ($user->image && str_contains($user->image, 'cloudinary')) {
+                Cloudinary::destroy($user->image);
             }
 
-            // Get new image name with a random number appended
-            $newImage = $this->generateRandomImageName($image);
+            // ၂။ ပုံအသစ်ကို Cloudinary ပေါ်တင်မယ်
+            // folder name ကို 'profile_images' လို့ ပေးထားပါတယ်
+            $uploadedFile = Cloudinary::upload($image->getRealPath(), [
+                'folder' => 'profile_images'
+            ]);
 
-            try {
-                // Save new image to storage
-                $path = $image->storeAs('public/profile_images', $newImage);
-                Log::info('Image stored at: ' . $path);
+            // ၃။ ပုံရဲ့ Secure URL ကို $data ထဲ ထည့်မယ်
+            $data['image'] = $uploadedFile->getSecurePath();
 
-                $data['image'] = $newImage;
-            } catch (\Exception $e) {
-                Log::error('Failed to store image: ' . $e->getMessage());
-            }
-        }
+            Log::info('Cloudinary Upload Success: ' . $data['image']);
+
+        } catch (\Exception $e) {
+            Log::error('Cloudinary Upload Failed: ' . $e->getMessage());
+            // Error တက်ရင် ပုံဟောင်းကိုပဲ ပြန်သုံးမယ် (သို့မဟုတ်) notification ပြမယ်
+        }}
 
 
         User::where('id', Auth::user()->id)->update($data);
