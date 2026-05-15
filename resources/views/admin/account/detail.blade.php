@@ -19,7 +19,7 @@
                             </div>
                             <div class="card-body  d-flex">
                                 <div class="col-5 ">
-                                    {{-- <img src="{{asset('storage/'.Auth::user()->image)}}" class="rounded " width="300px"> --}}
+
                                     <img src="{{ Auth::user()->image }}"   class="rounded " width="300px">
                                 </div>
                                 <div class="col-7 ">
