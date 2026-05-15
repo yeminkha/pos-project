@@ -147,7 +147,7 @@ class allbookController extends Controller
                     ->get();
                 // dd($productCounts);
                 $arthurs = arthur::select('name')->distinct()->pluck('name')->toArray();
-                if (isEmpty($productCounts)) {
+                if ($productCounts->isEmpty()) {
                     $data = [
                         'title' => $title,
                         'list' => $list,
