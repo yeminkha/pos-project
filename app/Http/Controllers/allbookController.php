@@ -119,7 +119,7 @@ class allbookController extends Controller
                 $productCounts = Product::select('category_name', DB::raw('COUNT(*) as product_count'))
                     ->groupBy('category_name')
                     ->get();
-                if (isEmpty($mainList)) {
+                if ($mainList->isEmpty()) {
                     $data = [
                         'title' => $title,
                         'list' => $list,
