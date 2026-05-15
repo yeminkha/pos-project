@@ -19,7 +19,7 @@ class ReadinGuideController extends Controller
     public function readingGuide()
     {
         $readingGuideList = product::select('reading_guide')->groupBy('reading_guide')->get();
-        if (isEmpty($readingGuideList)) {
+        if ($readingGuideList->isEmpty()) {
             return back();
         } else {
             $mostOrderId = Order::select('product_name', DB::raw('count(*) as total'))
