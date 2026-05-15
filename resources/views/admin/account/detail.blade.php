@@ -19,22 +19,8 @@
                             </div>
                             <div class="card-body  d-flex">
                                 <div class="col-5 ">
-                                    {{-- <img src="{{asset('storage/'.Auth::user()->image)}}" class="rounded " width="300px"> --}}
-                                    {{-- <img src="{{ Auth::user()->image }}"   class="rounded " width="300px"> --}}
-                                    @php
-        $userImage = Auth::user()->image;
-    @endphp
-
-    @if($userImage && str_starts_with($userImage, 'http'))
-        {{-- Cloudinary URL ဖြစ်ခဲ့ရင် တိုက်ရိုက်ပြမယ် --}}
-        <img src="{{ $userImage }}" class="rounded" width="300px">
-    @elseif($userImage)
-        {{-- Local storage ထဲက ပုံအဟောင်း ဖြစ်ခဲ့ရင် (ဥပမာ default_pf.png) --}}
-        <img src="{{ asset('storage/profile_images/' . $userImage) }}" class="rounded" width="300px">
-    @else
-        {{-- ပုံ လုံးဝ မရှိခဲ့ရင် Default ပုံပြမယ် --}}
-        <img src="{{ asset('storage/default_images/pf/default_pf.png') }}" class="rounded" width="300px">
-    @endif
+                                    <img src="{{asset('storage/'.Auth::user()->image)}}" class="rounded " width="300px">
+                                    {{-- <img src="{{ Auth::user()->image }}" alt="Profile Image"  class="rounded " width="300px"> --}}
                                 </div>
                                 <div class="col-7 ">
                                     <div class="mt-5">
