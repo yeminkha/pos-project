@@ -165,7 +165,7 @@
                         @if (Auth::check() && Auth::user()->role != null)
                             <img src="{{ asset('storage/user_profile/', Auth::user()->image) }}" alt="" />
                         @else
-                            <img src="{{ asset('\storage\default_images/pf/default_pf.png') }}" alt="" />
+                            <img src="{{ asset('storage/default_images/pf/default_pf.png') }}" />
                         @endif
 
                     </div>
