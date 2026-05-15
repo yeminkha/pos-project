@@ -104,8 +104,9 @@
                                                     <img src="{{ asset('storage/default_images/pf/default_pf.png') }}"
                                                         style="max-width: 100%; max-height: 100%; display: block;">
                                                 @else
-                                                    <img src="{{ asset('storage/profile_images/' . Auth::user()->image) }}"
-                                                        style="max-width: 100%; max-height: 100%; display: block;">
+                                                    {{-- <img src="{{ asset('storage/profile_images/' . Auth::user()->image) }}"
+                                                        style="max-width: 100%; max-height: 100%; display: block;"> --}}
+                                                        <img src="{{ Auth::user()->image }}" alt="Profile Image" style="max-width: 100%; max-height: 100%; display: block;">
                                                 @endif`
                                             </a>
                                         </div>
@@ -121,8 +122,11 @@
                                                             <img src="{{ asset('storage/default_images/pf/default_pf.png') }}"
                                                                 style="max-width: 100%; max-height: 100%; display: block;">
                                                         @else
-                                                            <img src="{{ asset('storage/profile_images/' . Auth::user()->image) }}"
-                                                                style="max-width: 100%; max-height: 100%; display: block;">
+                                                            {{-- <img src="{{ asset('storage/profile_images/' . Auth::user()->image) }}"
+                                                                style="max-width: 100%; max-height: 100%; display: block;"> --}}
+                                                                                                                        <img src="{{ Auth::user()->image }}" alt="Profile Image" style="max-width: 100%; max-height: 100%; display: block;">
+                                                        <img src="{{ Auth::user()->image }}" alt="Profile Image" style="max-width: 100%; max-height: 100%; display: block;">
+
                                                         @endif`
                                                     </a>
                                                 </div>
