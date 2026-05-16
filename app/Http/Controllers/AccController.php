@@ -60,32 +60,33 @@ class AccController extends Controller
         //         Log::error('Failed to store image: ' . $e->getMessage());
         //     }
         // }
-if ($request->hasFile('image')) {
-        $image = $request->file('image');
-        $user = Auth::user();
+        if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $user = Auth::user();
 
-        try {
-            // ၁။ ပုံဟောင်းရှိလျှင် Cloudinary ပေါ်ကနေ အရင်ဖျက်မယ်
-            // (DB ထဲမှာ Cloudinary URL အပြည့်အစုံ ရှိနေရင် Cloudinary က သူ့ဘာသာ public_id ကို ခွဲခြားသိပါတယ်)
-            if ($user->image && str_contains($user->image, 'cloudinary')) {
-                Cloudinary::destroy($user->image);
-            }
+                try {
+                    // ၁။ ပုံဟောင်းရှိလျှင် Cloudinary ပေါ်ကနေ အရင်ဖျက်မယ်
+                    // (DB ထဲမှာ Cloudinary URL အပြည့်အစုံ ရှိနေရင် Cloudinary က သူ့ဘာသာ public_id ကို ခွဲခြားသိပါတယ်)
+                        if ($user->image && str_contains($user->image, 'cloudinary')) {
+                            Cloudinary::destroy($user->image);
+                        }
 
-            // ၂။ ပုံအသစ်ကို Cloudinary ပေါ်တင်မယ်
-            // folder name ကို 'profile_images' လို့ ပေးထားပါတယ်
-            $uploadedFile = Cloudinary::upload($image->getRealPath(), [
-                'folder' => 'profile_images'
-            ]);
+                    // ၂။ ပုံအသစ်ကို Cloudinary ပေါ်တင်မယ်
+                    // folder name ကို 'profile_images' လို့ ပေးထားပါတယ်
+                        $uploadedFile = Cloudinary::upload($image->getRealPath(), [
+                            'folder' => 'profile_images'
+                        ]);
 
-            // ၃။ ပုံရဲ့ Secure URL ကို $data ထဲ ထည့်မယ်
-            $data['image'] = $uploadedFile->getSecurePath();
+                        // ၃။ ပုံရဲ့ Secure URL ကို $data ထဲ ထည့်မယ်
+                        $data['image'] = $uploadedFile->getSecurePath();
 
-            Log::info('Cloudinary Upload Success: ' . $data['image']);
 
-        } catch (\Exception $e) {
-            Log::error('Cloudinary Upload Failed: ' . $e->getMessage());
-            // Error တက်ရင် ပုံဟောင်းကိုပဲ ပြန်သုံးမယ် (သို့မဟုတ်) notification ပြမယ်
-        }}
+
+                } catch (\Exception $e) {
+                    Log::error('Cloudinary Upload Failed: ' . $e->getMessage());
+                    // Error တက်ရင် ပုံဟောင်းကိုပဲ ပြန်သုံးမယ် (သို့မဟုတ်) notification ပြမယ်
+                }
+        }
 
 
         User::where('id', Auth::user()->id)->update($data);

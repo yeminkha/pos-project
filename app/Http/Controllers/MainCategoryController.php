@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class MainCategoryController extends Controller
 {
@@ -35,10 +36,22 @@ class MainCategoryController extends Controller
             'name' => $request->name,
         ];
 
-        if ($image != null) {
-            $image->storeAs('public/mainCategory', $request->image->getClientOriginalName());
-            $categoryData['image'] = $request->image->getClientOriginalName();
-        }
+if ($request->hasFile('image')) {
+    try {
+        // ၁။ Cloudinary ပေါ်တင်မယ် (folder နာမည်ကို 'mainCategory' လို့ ပေးထားပါတယ်)
+        $uploadedFile = Cloudinary::upload($request->file('image')->getRealPath(), [
+            'folder' => 'mainCategory'
+        ]);
+
+        // ၂။ Cloudinary ကပေးတဲ့ Secure URL ကို သိမ်းမယ်
+        // ဒါမှမဟုတ် ပုံနာမည်ပဲ သိမ်းချင်ရင် $uploadedFile->getPublicId() ကို သုံးနိုင်ပါတယ်
+        $categoryData['image'] = $uploadedFile->getSecurePath();
+
+        Log::info('Category Image uploaded to Cloudinary: ' . $categoryData['image']);
+    } catch (\Exception $e) {
+        Log::error('Cloudinary Upload Error: ' . $e->getMessage());
+    }
+}
 
         mainCategory::create($categoryData);
 
