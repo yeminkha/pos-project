@@ -47,8 +47,11 @@
                                         <tr class="tr-shadow">
                                             <input type="hidden" class="id" value="{{ $p->id }}">
 
-                                            <td><img src="{{ asset('storage/mainCategory/' . $p->image) }}" class="rounded"
-                                                    width="100px"></td>
+                                            <td>
+                                                {{-- <img src="{{ asset('storage/mainCategory/' . $p->image) }}" class="rounded"
+                                                    width="100px"> --}}
+                                                    <img src="{{ $p->image }}" width="100px" >
+                                            </td>
 
                                             <td>{{ $p->name }}</td>
                                             <td>{{ $p->main_category_name }}</td>
