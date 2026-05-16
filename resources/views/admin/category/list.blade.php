@@ -50,7 +50,8 @@
                                             <td>
                                                 {{-- <img src="{{ asset('storage/mainCategory/' . $p->image) }}" class="rounded"
                                                     width="100px"> --}}
-                                                    <img src="{{ $p->image }}" width="100px" >
+                                                    {{-- <img src="{{ $p->image }}" width="100px" > --}}
+                                                    {{dd($p->image)}}
                                             </td>
 
                                             <td>{{ $p->name }}</td>
